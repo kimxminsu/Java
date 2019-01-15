@@ -1,6 +1,6 @@
 package sec06.exam01;
 
-public class BtyeExample {
+public class ByteExample {
 	public static void main(String[] args) {
 		byte var1 =-128;
 		byte var2 = -30;
