@@ -13,7 +13,7 @@ public class SwitchNoBreakCaseExample {
 			System.out.println("회의를 합니다.");
 		case 10:
 			System.out.println("업무를 봅니다.");
-		default:
+		default: 
 			System.out.println("외근을 나갑니다.");
 		}
 		
