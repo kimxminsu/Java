@@ -9,8 +9,6 @@ public class Exercise04 {
 			System.out.println(num1 + "," + num2);
 			num1 = (int)(Math.random()*6) +1;
 			num2 = (int)(Math.random()*6) +1;
-			
 		}
 	}
-
 }
