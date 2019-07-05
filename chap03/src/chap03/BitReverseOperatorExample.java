@@ -20,8 +20,8 @@ public class BitReverseOperatorExample {
 	}
 
 	public static String toBinaryString(int value) {
-		String str = Integer.toBinaryString(value);
-		while(str.length() < 32) {
+		String str = Integer.toBinaryString(value); //정수값을 이진 문자열로 리턴
+		while(str.length() < 32) { //생략되는 앞의 비트 0을 다시 살려줌
 			str = "0" + str;
 		}
 		return str;

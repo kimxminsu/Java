@@ -6,10 +6,10 @@ public class DenyLogicOperatorExample {
 		boolean play = true;
 		System.out.println(play);
 		
-		play = !play;
+		play = !play; //false
 		System.out.println(play);
 		
-		play = !play;
+		play = !play; //true
 		System.out.println(play);
 	}
 
