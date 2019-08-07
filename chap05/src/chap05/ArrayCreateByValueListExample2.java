@@ -22,6 +22,7 @@ public class ArrayCreateByValueListExample2 {
 		for(int i=0; i<3; i++) {
 			sum += scores[i];
 		}
+		return sum;
 	}
 
 }

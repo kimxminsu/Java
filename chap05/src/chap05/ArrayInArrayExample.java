@@ -4,8 +4,8 @@ public class ArrayInArrayExample {
 
 	public static void main(String[] args) {
 		int[][] mathScores = new int[2][3];
-		for(int i=0; i<mathScores.length; i++) {
-			for(int k=0; k<mathScores[i].length; k++) {
+		for(int i=0; i<mathScores.length; i++) { //세로길이
+			for(int k=0; k<mathScores[i].length; k++) { //i줄 가로길이
 				System.out.println("mathScores[" + i + "][" + k + "]=" + mathScores[i][k]);
 				//0,0,0,0,0,0,
 			}
