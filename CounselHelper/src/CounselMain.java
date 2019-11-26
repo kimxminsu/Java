@@ -45,16 +45,19 @@ public class CounselMain extends JFrame {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("끝내기");
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int result=JOptionPane.showConfirmDialog(null, "프로그램 실행을 계속하시겠습니까?", "실행 확인", JOptionPane.YES_NO_OPTION);
-				if(result==JOptionPane.YES_OPTION) new CounselMain().setVisible(true);
-				else System.exit(-1); 
+				int result = JOptionPane.showConfirmDialog(null, "프로그램 실행을 계속하시겠습니까?", "실행 확인",
+						JOptionPane.YES_NO_OPTION);
+				if (result == JOptionPane.YES_OPTION)
+					new CounselMain().setVisible(true);
+				else
+					System.exit(-1);
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_2);
 
 		JMenu mnNewMenu_1 = new JMenu("도움말");
 		menuBar.add(mnNewMenu_1);
-		
+
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("사용법");
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

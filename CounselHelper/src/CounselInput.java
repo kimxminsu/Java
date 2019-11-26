@@ -60,11 +60,10 @@ public class CounselInput extends JTabbedPane {
 
 		radiobutton_female = new JRadioButton("여자");
 		panel_1.add(radiobutton_female);
-		
-		ButtonGroup buttonGroup=new ButtonGroup();
+
+		ButtonGroup buttonGroup = new ButtonGroup();
 		buttonGroup.add(radiobutton_male);
 		buttonGroup.add(radiobutton_female);
-
 
 		JLabel lblNewLabel_3 = new JLabel("     ");
 		panel_1.add(lblNewLabel_3);
