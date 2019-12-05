@@ -1,46 +1,41 @@
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.Random;
 
 public class Test {
-    public static void main(String[] args) {
-        int V = 10;
-        String input = "0 1 2 3 3 4 5 6 6 7 7 8 8 9";
-        LinkedList<Integer> adjList[] = new LinkedList[V];
-        for (int i = 0; i < adjList.length; i++) adjList[i] = new LinkedList<>();
-        String s[] = input.split("\\s+");
-        for (int i = 0; i < s.length; i += 2) {
-            int v1 = Integer.parseInt(s[i]);
-            int v2 = Integer.parseInt(s[i + 1]);
-            adjList[v1].add(v2);
-            adjList[v2].add(v1);
-        }
-        int groups[] = connected(adjList, V);
-        System.out.println(Arrays.toString(groups));
-        System.out.println(isFriend(groups, 1, 4));
-        System.out.println(isFriend(groups, 5, 9));   // input="0 1 2 3 3 4 5 6 6 7 7 8 8 9 4 5";
-    }
-    private static char[] isFriend ( int[] groups, int i, int j){
+	public static void main(String[] args) {
+		int R = 5, C = 5, count = 0;
+		char ground[][] = new char[R][C];
+		Random random = new Random();
+		for (int i = 0; i < ground.length; i++) { // ÀÓÀÇ °³¼öÀÇ ¹°¿õµ¢ÀÌ Æ÷ÇÔ Æò¸é »ı¼º
+			for (int j = 0; j < ground[i].length; j++)
+				ground[i][j] = (random.nextInt(3) == 0) ? '1' : '0';
+		}
+		for (int i = 0; i < ground.length; i++) { // Æò¸é Ãâ·Â
+			for (int j = 0; j < ground[i].length; j++)
+				System.out.print(ground[i][j]);
+			System.out.println();
+		}
+		for (int i = 0; i < ground.length; i++) {
+			for (int j = 0; j < ground[i].length; j++) {
+				if (ground[i][j] == '1') {
+					dfs(ground, R, C, i, j);
+					count++;
+				}
+			}
+		}
+		System.out.println(count);
+	}
 
-        return null;
-    }
+	private static void dfs(char[][] ground, int R, int C, int i, int j) {
+		ground[i][j] = '0';// ¹æ¹®Ç¥½Ã (¸¶¸¥¶¥À¸·Î º¯°æ)
+		
+		//[i][j]¸¦ Æ÷ÇÔÇØ¼­ ºÒÇÊ¿äÇÑ °Ë»ç¸¦ ÇÏ±ä ÇÔ(9¹ø)
+		
+		for (int dx = -1; dx <= 1; dx++) { //dx=-1,0,1
+			for(int dy=-1;dy<=1;dy++) {//dx=-1,0,1
+				int r=i+dx,c=j+dy;
+				if(r>=0&&r<R&&C>=0&&c<c&&ground[r][c]=='1') dfs(ground, R, C, r, c);
+			}
+		}
 
-
-    private static int[] connected (LinkedList < Integer >[]adjList,int v){
-        int groups[] = new int[V];
-        int label = 0;
-        //ê·¸ë˜í”„ ë‚´ ëª¨ë“  ë…¸ë“œì— ëŒ€í•´ ë¯¸ë°©ë¬¸ ì‹œ ì•„ë˜ dfs í˜¸ì¶œ
-        for (int v = 0; v < V; v++) {
-            if (groups[v] == 0) dfs(adjList, V, i, groups, ++label);//0-1-2-3
-        }
-
-        return groups;
-    }
-
-    private static void dfs (LinkedList < Integer >[]adjList,int V, int v, int[] groups, int label){
-        groups[v] = label;//visited[v]=true;
-        //í˜„ì¬ ë…¸ë“œ
-        for (int w : adjList[v]) {
-            if (groups[w] == 0) dfs(adjList, V, W, groups, label);
-        }
-    }
+	}
 }
