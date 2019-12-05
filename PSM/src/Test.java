@@ -1,41 +1,52 @@
-import java.util.Random;
+import java.util.Arrays;
 
 public class Test {
 	public static void main(String[] args) {
-		int R = 5, C = 5, count = 0;
-		char ground[][] = new char[R][C];
-		Random random = new Random();
-		for (int i = 0; i < ground.length; i++) { // 임의 개수의 물웅덩이 포함 평면 생성
-			for (int j = 0; j < ground[i].length; j++)
-				ground[i][j] = (random.nextInt(3) == 0) ? '1' : '0';
-		}
-		for (int i = 0; i < ground.length; i++) { // 평면 출력
-			for (int j = 0; j < ground[i].length; j++)
-				System.out.print(ground[i][j]);
-			System.out.println();
-		}
-		for (int i = 0; i < ground.length; i++) {
-			for (int j = 0; j < ground[i].length; j++) {
-				if (ground[i][j] == '1') {
-					dfs(ground, R, C, i, j);
-					count++;
-				}
-			}
-		}
-		System.out.println(count);
+		// union-find 연산을 이용한 <서로소집합>의 표현방법: {0,1}, {2,3,4}, {5,6,7,8}, {9}
+		// 모든 단일원소집합들을 만든 후 union(합집합) 연산을 적용
+		int N = 10;
+		UF uf = new UF(N); // 단일원소집합들 생성: {0},{1},{2},{3},...,{N}
+		System.out.println(uf);
+		uf.union(0, 1); // 0->1
+		uf.union(2, 3); // 2->3
+		uf.union(3, 4); // 2->3->4
+		uf.union(5, 6); // 5->6
+		uf.union(6, 7); // 5->6->7
+		uf.union(7, 8); // 5->6->7->8
+		System.out.println(uf);
+
+		System.out.println(uf.find(5) == uf.find(7)); // find 연산 통해 노드 연결 여부 검사
+		System.out.println(uf.find(5) == uf.find(2)); // find 연산 통해 노드 연결 여부 검사
+		uf.union(4, 5);
+		System.out.println(uf);
+	}
+}
+
+public class UF {
+	int parent[];
+
+	public UF(int N) {
+		parent = new int[N];
+		for (int i = 0; i < parent.length; i++)
+			parent[i] = i;
 	}
 
-	private static void dfs(char[][] ground, int R, int C, int i, int j) {
-		ground[i][j] = '0';// 방문표시 (마른땅으로 변경)
-		
-		//[i][j]를 포함해서 불필요한 검사를 하긴 함(9번)
-		
-		for (int dx = -1; dx <= 1; dx++) { //dx=-1,0,1
-			for(int dy=-1;dy<=1;dy++) {//dx=-1,0,1
-				int r=i+dx,c=j+dy;
-				if(r>=0&&r<R&&C>=0&&c<c&&ground[r][c]=='1') dfs(ground, R, C, r, c);
-			}
-		}
+	public void union(int i, int j) {
+		i = find(i);
+		j = find(j);
+		if (i == j)
+			return;
+		parent[i] = j;
+	}
 
+	public int find(int i) {
+		while (i != parent[i])
+			i = parent[i];
+		return i;
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(parent);
 	}
 }
