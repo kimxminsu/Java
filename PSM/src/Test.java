@@ -1,20 +1,18 @@
-import java.util.Random;
-
 public class Test {
 	public static void main(String[] args) {
-		int v[] = new int[1000000];
-		Random random = new Random();
-		for (int i = 0; i < v.length; i++)
-			v[i] = random.nextInt(1000000);
-		int key = 1234;
-		System.out.println(search(v, key));
-	}
-
-	private static int search(int[] v, int key) {
-		for (int i = 0; i < v.length; i++) {
-			if (v[i] == key)
-				return i;
-		}
-		return -1;
+		int N=10;
+		UF uf=new UF(N);
+		System.out.println(uf);
+		uf.union(0,1);
+		uf.union(2,3);
+//		uf.union(4,5);
+//		uf.union(6,7);
+//		uf.union(8,9);
+//		uf.union(0,2);
+		uf.union(4,6);
+		uf.union(0,4);
+		System.out.println(uf);
+		System.out.println(uf.find(1)==uf.find(6));
+		System.out.println("연결요소 개수 = "+uf.count);
 	}
 }
