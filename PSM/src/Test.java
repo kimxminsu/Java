@@ -1,20 +1,18 @@
-import java.util.HashMap;
-
 public class Test {
 	public static void main(String[] args) {
-		HashMap<String, Integer> hashMap = new HashMap<>();
-		hashMap.put("Korea", 99);
-		hashMap.put("Japan", 87);
-		hashMap.put("China", 95);
-		System.out.println(hashMap);
-
-		for (String key : hashMap.keySet()) {
-			System.out.println(key + "=>" + hashMap.get(key));
-		}
-
-		System.out.println(hashMap.get("China"));
-		System.out.println(hashMap.get("US"));
-		hashMap.remove("Japan");
-		System.out.println(hashMap);
+		int N = 10;
+		UF uf = new UF(N);
+		System.out.println(uf);
+		uf.union(0, 1);
+		uf.union(2, 3);
+		uf.union(4, 5);
+		uf.union(6, 7);
+		uf.union(8, 9);
+		uf.union(0, 2);
+		uf.union(4, 6);
+		uf.union(0, 4);
+		System.out.println(uf);
+		System.out.println(uf.find(1) == uf.find(6));
+		// System.out.println("연결요소 개수 = "+uf.count);
 	}
 }

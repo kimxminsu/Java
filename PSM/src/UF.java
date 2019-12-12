@@ -30,9 +30,10 @@ public class UF {
 	}
 
 	public int find(int i) { // path compression
-		if (i != parent[i])
-			parent[i] = find(parent[i]);
-		return parent[i];
+//		if (i != parent[i])
+//			parent[i] = find(parent[i]);
+//		return parent[i];
+		
 //		2번-실습 #2 - 이론자료에 page5 find
 //		while(i!=parent[i]) {
 //			i=parent[i];
@@ -40,7 +41,13 @@ public class UF {
 //		return i;
 		
 //		교수님이 칠판에 써준거 해보기
-//		while(i!=parent)
+		int root=0;
+		while(i!=parent[i]) {
+			int temp=parent[i];
+			parent[i]=root;
+			i=temp;
+		}
+		return root;
 	}
 
 	@Override
