@@ -1,23 +1,26 @@
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class Test extends JFrame {
+public class Test extends JPanel {
 	public Test() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 500); //화면 창 (윈도우) 크기
+		setPreferredSize(new Dimension(500, 500));
 	}
 
 	@Override
-	public void paint(Graphics g) { //실제 그림 그려짐, Graphics 객체=스케치북
-//		메모리 상에 있는거를 그래픽카드로 보내서 디스플레이에서 실제 보이게함
-		super.paint(g);
-		g.drawLine(0, 0, 100, 100); // TitleBar를 포함한 JFrame의 원점 기준
-//		0,0 -> 100,100 대각선으로 그려짐
-//		실제로 실행하면 0,0은 제목?부분에 가려져 ㅠㅠ JFrame 에 그려서 생긴 문제
+	protected void paintComponent(Graphics g) { //JFrame 과는 다름
+		super.paintComponent(g);
+		g.drawLine(0, 0, 100, 100);
+		g.drawLine(400, 400, 500, 500);
 	}
 
 	public static void main(String[] args) {
-		new Test().setVisible(true);
+		JFrame w = new JFrame();
+		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		w.add(new Test());
+		w.pack(); // JPanel 크기만큼 조정
+		w.setVisible(true);
 	}
 }
