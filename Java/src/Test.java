@@ -1,22 +1,20 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.awt.Graphics;
 
-public class Test {
-	public static void main(String[] args) {
-		try {
-			Class.forName("org.sqlite.JDBC"); // JDBC 대문자로 입력
-			Connection DB = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\MINSU\\Desktop\\Java\\CounselHelper-DB\\DB_memo.db");
-			Statement sql = DB.createStatement();
-			String address=quote("서울");
-			int rowsAffected = sql.executeUpdate("insert into TB_memo values ('2019-11-29','홍길동',"+address+",'남자','한국인','학업 상담')");
-			System.out.println(rowsAffected + " rows inserted");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+import javax.swing.JFrame;
+
+public class Test extends JFrame {
+	public Test() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(500, 500);
 	}
 
-	private static String quote(String v) {
-		return "'"+v+"'";
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.drawLine(0, 0, 100, 100); // TitleBar를 포함한 JFrame의 원점 기준
+	}
+
+	public static void main(String[] args) {
+		new Test().setVisible(true);
 	}
 }
