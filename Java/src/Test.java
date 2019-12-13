@@ -9,33 +9,44 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Test extends JPanel {
-	int x, y, width = 100, height = 100;
+	int canvasWidth = 500;
+	int canvasHeight = 500;
+	int dx = 5, dy = 5; // x에서 얼만큼 더해서 위치를 움직일지
+	int x, y, diameter = 30;
+	Color color;
 
 	public Test() {
-		setPreferredSize(new Dimension(500, 500));
+		setPreferredSize(new Dimension(canvasWidth, canvasHeight));
+		x = (canvasWidth - diameter) / 2; // 초기위치,
+		y = canvasHeight - diameter;
+		Random random = new Random();
+		color = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				AnimationLoop();
+				GameLoop();
 			}
 		}).start();
 	}
 
-	protected void AnimationLoop() {
+	protected void GameLoop() {
 		while (true) {
-			AnimationUpdate();
+			GameUpdate();
 			repaint();
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(20);
 			} catch (InterruptedException e) {
 			}
 		}
 	}
 
-	private void AnimationUpdate() {
-		Random random = new Random();
-		x = random.nextInt(500);
-		y = random.nextInt(500);
+	protected void GameUpdate() {
+		if (x < 0 || x + diameter > canvasWidth) // 오른쪽 끝이 벽을 넘어서면 //x<0 : 왼쪽 벽에 부딪히면
+			dx *= -1; // 왼쪽으로 5만큼 //오른쪽으로 5만큼
+		if (y < 0 || y + diameter > canvasHeight) // 위쪽 벽에 부딪히면
+			dy *= -1; // 아래로 5만큼
+		x += dx; // 오른쪽으로 5만큼
+		y -= dy; // 위로 5만큼
 	}
 
 	@Override
@@ -43,9 +54,8 @@ public class Test extends JPanel {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		Random random = new Random();
-		g2.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
-		g2.fillOval(x, y, width, height);
+		g2.setColor(color);
+		g2.fillOval(x, y, diameter, diameter);
 	}
 
 	public static void main(String[] args) {
