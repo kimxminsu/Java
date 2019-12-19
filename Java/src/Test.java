@@ -3,28 +3,23 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Test extends JPanel implements KeyListener {
-	boolean startFlag;
+public class Test extends JPanel {
 	int canvasWidth = 500;
 	int canvasHeight = 500;
-	int dx = 5, dy = 5;
+	int dx = 5, dy = 5; // x에서 얼만큼 더해서 위치를 움직일지
 	int x, y, diameter = 30;
 	Color color;
 
 	public Test() {
 		setPreferredSize(new Dimension(canvasWidth, canvasHeight));
-		x = (canvasWidth - diameter) / 2;
+		x = (canvasWidth - diameter) / 2; // 초기위치,
 		y = canvasHeight - diameter;
 		Random random = new Random();
-		addKeyListener(this);
-		setFocusable(true);
 		color = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
 		new Thread(new Runnable() {
 			@Override
@@ -36,8 +31,7 @@ public class Test extends JPanel implements KeyListener {
 
 	protected void GameLoop() {
 		while (true) {
-			if (startFlag)
-				GameUpdate();
+			GameUpdate();
 			repaint();
 			try {
 				Thread.sleep(20);
@@ -47,12 +41,12 @@ public class Test extends JPanel implements KeyListener {
 	}
 
 	protected void GameUpdate() {
-		if (x < 0 || x + diameter > canvasWidth)
-			dx *= -1;
-		if (y < 0 || y + diameter > canvasHeight)
-			dy *= -1;
-		x += dx;
-		y -= dy;
+		if (x < 0 || x + diameter > canvasWidth) // 오른쪽 끝이 벽을 넘어서면 //x<0 : 왼쪽 벽에 부딪히면
+			dx *= -1; // 왼쪽으로 5만큼 //오른쪽으로 5만큼
+		if (y < 0 || y + diameter > canvasHeight) // 위쪽 벽에 부딪히면
+			dy *= -1; // 아래로 5만큼
+		x += dx; // 오른쪽으로 5만큼
+		y -= dy; // 위로 5만큼
 	}
 
 	@Override
@@ -70,23 +64,5 @@ public class Test extends JPanel implements KeyListener {
 		w.add(new Test());
 		w.pack();
 		w.setVisible(true);
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		if (!startFlag && e.getKeyCode() == KeyEvent.VK_RIGHT) // 이걸 없애면 공이 움직이는 중에도 동작
-			x += dx;
-		if (!startFlag && e.getKeyCode() == KeyEvent.VK_LEFT)
-			x -= dx;
-		if (e.getKeyCode() == KeyEvent.VK_SPACE)
-			startFlag = true;
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
 	}
 }
