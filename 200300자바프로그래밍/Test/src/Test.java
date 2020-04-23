@@ -1,13 +1,6 @@
 public class Test {
 	public static void main(String[] args) {
-		int box1Weight = 50;
-		int box2Weight = 300;
-		
-		int temp = box1Weight;
-		box1Weight = box2Weight;
-		box2Weight = temp;
-		
-		System.out.println(box1Weight);
-		System.out.println(box2Weight);
+		int mathScore = 79, langScore = 86, engScore = 95; // (1)(2)(3)
+		System.out.println((mathScore + langScore + engScore) / 3.0); // (4)(5)(6)
 	}
 }
