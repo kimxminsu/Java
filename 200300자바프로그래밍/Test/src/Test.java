@@ -1,6 +1,10 @@
 public class Test {
 	public static void main(String[] args) {
 		String name="김철수";
+		int age=21;
+		double weight=65.7;
+		char gender='남';
+		boolean dopingTestPassed=true;
 		
 		System.out.println(name); // 선수 이름
 		System.out.println(age); // 선수 나이
