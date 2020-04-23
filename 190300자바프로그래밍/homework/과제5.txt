@@ -1,0 +1,73 @@
+1.        
+public Test {
+ public static void main(String[] args) {
+	Student s = new Student("홍길동", 95);
+	Teacher t = new Teacher("마이클", "영어");
+	System.out.println(s);
+	System.out.println(t);
+	Person p[] = new Person[2]; //Object p[] = new Object[2];
+	p[0] = s;
+	p[1] = t;
+	for(int i = 0; i<p.length; i++) {
+		System.out.println(p[i]);	
+	}
+ }
+
+2.
+public class User {
+ private String email;
+ private String startDate;
+ public User(String email, String startDate) {
+	this.email = email;
+	this.startDate = startDate;
+ }
+ public void setName(String email) {
+	this.email = email;		
+ }	
+ public void setName2(String startDate) {
+	this.startDate = startDate;
+ }
+ public String getemail() {
+	return email;
+ }
+}
+
+3.
+public class Circle {
+ int radious ;
+ public Circle(int radious) {
+	this.radious = radious;
+ }
+ public double getArea() {
+	return radious*radious*3.14;
+ }
+
+ public class Rectangle {
+	int width ;
+	int height;
+	public Rectangle(int width, int height) {
+		this.width = width;
+		this.height = height;	
+	}
+	public double getArea() {
+		return width*height;
+	}
+ }
+}
+
+public class Test {
+ public static void main(String[] args) {
+	Rectangle r = new Rectangle(3, 4);
+	r.height = 3;
+	r.width = 4;
+	Circle c = new Circle(5);
+	c.radious = 5;
+	Object O[] = new Object[2];
+	O[0] = r; 
+	O[1] = c;
+	 for(int i=0; i<O.length; i++) {
+		 if(O[i] instanceof Rectangle)   System.out.println(r.getArea());
+		 else System.out.println(c.getArea());
+	 }	
+	}
+}

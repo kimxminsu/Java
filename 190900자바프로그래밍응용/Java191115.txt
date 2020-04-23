@@ -1,0 +1,81 @@
+#화면 중앙에 크게띄우기
+jframe-properties-defaultcloseoperation-EXIT_on_close
+
+#사이즈
+properties-더보기(노란색화살표오른쪽)-size-1,1한다음에 마우스로 크기조절
+
+#모니터중앙
+set location 렐러티브2 ralative2?
+코드-setsize밑에줄에-setLocationRelativeTo(null);
+
+<counsellInput>
+border
+-north-상담신청자jlabel-이름jlabel-텍스트박스-   거주지역jlabel-jcombobox_area서울,부산..-성별jlabel-남자,여자jradiobutton_male,female *2-공백(스페이스바/empty border외국인 여부checkbox
+
+center
+-jscrollpane
+-칼럼헤더-삼담입력label-horizontal을 center로,
+		-(숨겨져있는거 노란색화살표)acvanced properties-empty border(10,10,10,10)
+-viewport-jtextarea-border type-empty border
+-south
+-새상담입력button-상담저장button
+
+상담저장-action-saveMemo();-마우스갖다대고 create method in type 'counselinput'-
+#11번
+현재 컴포넌트 값 읽기-radiobutton.isselected()~~~
+combobox.getselectedindex 0번째,1번째
+.getselecteditem 서울,부산... 스트링이 아니라서 toString 해준다
+
+메소드 생기면 거기가서
+protected void saveMEmo() {
+
+String name=textField_name.getText();
+if(name.equals("")) {
+joptionpane.showmessagedialog(null,"이름을 입력하세요.");
+//위에 null(기본설정=모니터) 대신에 (counselInput.)this(현재class-jtabbedpane)
+return;
+}
+
+String address=combobox(어머,local변수라서 안되네!->convert빨간색버튼)
+String address=(String)combobox_address.getSelectedItem();//casting형변환
+address는 선택 안될수가 없어서 오류검사안해도됨
+
+
+//radio global로 바꾸고 하기
+if(radiobutton_male.isSelected()==false&&female.isSElected()==false) //둘다false면
+	JoptionPane.showmessageDiaolog(null,"성별을 선택하세요");
+	//위에 null(기본설정=모니터) 대신에 this(현재class-jtabbedpane)
+	return;
+
+
+String gender=(radiobutton_male.isSelected())? "남자" : "여자";
+
+//String gender="";
+//if(radioButton_male.isSelected()) gender="남자";
+//if(radioButton_female.isSelected()) gender="여자";
+
+
+
+soucecode radiobutton 다음줄에다가 직접입력
+ButtonGroup buttonGroupt=new ButtonGroupt();
+buttonGroup.add(radiobutton_male);
+buttonGroup.add(radiobutton_female);
+
+
+
+
+<search>
+borderlayout
+north
+combobox(상담일시,,,,,),-textfield-button상담검색
+
+center
+scrollpane-table(소스코드로 가서 이름입력-상담일시,이름,지역,성별,외국인여부, 상담내용
+
+south
+label(page 0/0)-button(이전)-button다음-Slider
+
+
+
+
+

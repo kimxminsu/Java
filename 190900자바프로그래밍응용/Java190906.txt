@@ -1,0 +1,21 @@
+#(1-2) 2
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println("È«±æµ¿");
+	}
+	
+}
+
+#(1-2) 4
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println("È«");
+		System.out.println("±æ");
+		System.out.println("µ¿");
+	}
+	
+}

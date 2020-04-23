@@ -1,0 +1,208 @@
+14번
+import java.util.Random;
+
+public class Test {
+	public static void main(String[] args) {
+		Random random = new Random();
+		for (int i = 0; i < 20; i++) {
+			int v = 1 + random.nextInt(6);
+			System.out.print(v + " ");
+		}
+	}
+}
+
+15번
+import java.util.Random;
+
+public class Test {
+	public static void main(String[] args) {
+		Random random = new Random();
+		int num1 = 0, num2 = 0, num3 = 0, num4 = 0, num5 = 0, num6 = 0;
+		for (int i = 0; i < 6000; i++) {
+			int v = 1 + random.nextInt(6);
+			if (v == 1)
+				num1++;
+			if (v == 2)
+				num2++;
+			if (v == 3)
+				num3++;
+			if (v == 4)
+				num4++;
+			if (v == 5)
+				num5++;
+			if (v == 6)
+				num6++;
+		}
+		System.out.print("[" + num1 + ", " + num2 + ", " + num3 + ", " + num4 + ", " + num5 + ", " + num6 + "]");
+	}
+}
+
+17번
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 5, 7, 9, 1, 3, 5, 8, 2, 4, 9 };
+		Arrays.sort(n);
+		System.out.print("[");
+		for (int i = 0; i < n.length; i++) {
+			System.out.print(n[n.length - 1 - i]);
+			if (i < n.length - 1)
+				System.out.print(",");
+		}
+		System.out.println("]");
+	}
+}
+18번
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 5, 7, 9, 1, 3, 5, 8, 2, 4, 9 };
+		Arrays.sort(n);
+		for (int i = 0; i < n.length / 2; i++) {
+			int j = n[i];
+			n[i] = n[n.length - 1 - i];
+			n[n.length - 1 - i] = j;
+		}
+		System.out.println(Arrays.toString(n));
+	}
+}
+22번
+//import java.util.Arrays;
+public class Test {
+
+	public static void main(String[] args) {
+		int n[] = { 4, 5, 1, 5, 1, 3, 4, 5, 1 };
+//		Arrays.sort(n);
+		int max = n[0], max2 = n[0];
+
+		for (int i = 0; i < n.length; i++) {
+			if (n[i] > max)
+				max = n[i];
+		}
+
+		for (int i = 0; i < n.length; i++) {
+			if (n[i] > max && n[i] > max2)
+				max2 = n[i];
+
+		}
+		System.out.println(max2);
+	}
+
+}
+23번
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 4, 4, 1, 5, 1, 3, 4, 1 };
+		int max = n[0], max2 = n[0], num = 0;
+		for (int i = 1; i < n.length; i++) {
+			if (n[i] > max) {
+				max = n[i];
+				num = i;
+			}
+		}
+		for (int i = 1; i < n.length; i++) {
+			if (n[i] > max2) {
+				if (i != num)
+					max2 = n[i];
+			}
+		}
+		System.out.println(max2);
+	}
+}
+25번
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 4, 5, 1, 6, 1, 3, 4, 5, 1 };
+//		double n[] = { 5, 1, 6, 1, 3, 4, 5, 1 };
+		Arrays.sort(n);
+		if (n.length % 2 == 0) {
+			System.out.println((n[(n.length) / 2] - 1 + n[((n.length) / 2)]) / 2);
+		} else
+			System.out.println(n[(n.length / 2) + 1]);
+	}
+}
+26번
+import java.util.Arrays;
+
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]={4,5,1,6,1,3,4,5,1};
+		Arrays.sort(n);
+		System.out.print(n[0]+" ");
+		for (int i = 1; i < n.length; i++) {
+			if (n[i-1]!=n[i]) System.out.print(n[i]+" ");
+		}
+	}
+
+}
+27번
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 4, 5, 1, 6, 1, 3, 4, 5, 1 };
+		Arrays.sort(n);
+		for (int i = 0; i < n.length / 2; i++) {
+			int j = n[i];
+			n[i] = n[n.length - 1 - i];
+			n[n.length - 1 - i] = j;
+		}
+
+		for (int i = 0; i < n.length; i++) {
+			System.out.print(n[i] + " ");
+		}
+		System.out.println();
+
+		int cnt = 1;
+		System.out.print(cnt + " ");
+
+		for (int i = 1; i < n.length; i++) {
+			if (n[i - 1] != n[i]) {
+				System.out.print(cnt + 1 + " ");
+				cnt++;
+			} else
+				System.out.print(cnt + " ");
+		}
+	}
+}
+29번
+//import java.util.Scanner; //스캐너사용
+import java.util.Arrays;
+
+public class Test {
+
+	public static void main(String[] args) {
+		int n[] = { 1, 2, 3, 4, 5 };
+//		Scanner time = new Scanner(System.in); // 스캐너사용
+//		int k = time.nextInt() % n.length; // 스캐너사용
+		int k1 = 2;
+//		int k1=5;
+//		int k1=6;
+		int k = k1 % 5;
+
+		for (int i = 0; i < n.length / 2; i++) {
+			int j = n[i];
+			n[i] = n[n.length - 1 - i];
+			n[n.length - 1 - i] = j;
+		}
+
+		for (int i = 0; i < k / 2; i++) {
+			int j = n[i];
+			n[i] = n[k - 1 - i];
+			n[k - 1 - i] = j;
+		}
+
+		for (int i = 0; i < (n.length - k) / 2; i++) {
+			int j = n[k + i];
+			n[k + i] = n[n.length - 1 - i];
+			n[n.length - 1 - i] = j;
+		}
+
+		System.out.println(Arrays.toString(n));
+	}
+}

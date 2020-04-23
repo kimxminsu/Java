@@ -1,0 +1,100 @@
+#(4-1) 6번
+tabbedpane
+menubar-menu-menuitem*3
+-----
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
+public class BookJFrame extends JFrame{
+	public BookJFrame() {
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		getContentPane().add(tabbedPane, BorderLayout.CENTER);
+		
+		JPanel panel = new SearchJPanel();
+		tabbedPane.addTab("대출", null, panel, null);
+		
+		JPanel panel_1 = new JPanel();
+		tabbedPane.addTab("반납", null, panel_1, null);
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("검색", null, panel_2, null);
+	}
+	
+	public static void main(String[] args) {
+		BookJFrame bookJFrame = new BookJFrame();
+		bookJFrame.setVisible(true);
+	}
+
+}
+
+#7
+<BookJFrame>setcontentPane
+검색-우클릭-acc action LIstner
+대출-우클릭-add action Listner
+
+menuBar
+Menu
+Menuitem * 3
+
+<SearchJPannel>
+panel
+	-comboBox
+	-textField
+	-btn
+
+<Borrow>
+group layout
+
+
+
+상담검색
+jsearchpane
+counsellsearch
+
+
+
+
+
+
+#윈도우빌더 새로운거 1번
+counselInput에서 이미 탭레이아웃?돼있고
+패널 올린다음에 properties-tab 플러스 버튼 누르고 title에 상담입력으로 이름 바꾸기
+
+#BookJFrame
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
+
+public class BookJFrame extends JFrame{
+	public BookJFrame() {
+		JTabbedPane tabbedPane=new JTabbedPane(JTabbedPane.TOP);
+		getContentPane().add(tabbedPane, BorderLayout.CENTER);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("New menu");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
+		mnNewMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("New menu item");
+		mnNewMenu.add(mntmNewMenuItem_2);
+	}
+	
+	public static void main(String[] args) {
+		BookJFrame bookJFrame = new BookJFrame();
+		bookJFrame.setVisible(true);
+	}
+
+}

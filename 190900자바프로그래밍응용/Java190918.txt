@@ -1,0 +1,150 @@
+#??
+
+public class Test {
+
+	public static void main(String[] args) {
+		double height[]= {175.3,180.5,161.2,197.1,190.8};
+		System.out.println(height[0]);
+		System.out.println(height[height.length-1]);
+	}
+}
+
+#(1-2) 42번
+
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]= {-76,100,-98,-76,46};
+		int v=max(n);
+		System.out.println(v);
+	}
+	private static int max(int[] n) {
+		int max=n[0];//배열 0번째 자리 최대값 ....나머지를 max랑 차례랓례 비교
+		for (int i = 0; i < n.length; i++) {
+			if(n[i]>max) max=n[i];
+		}
+		return max;
+	}
+}
+
+#(1-2) 46_과제용 내가함_3개만 출력돼야하는데 0 2개가 더 출력된다
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]= {-76,100,-98,-76,46};
+		int v[]=negativeNumbers(n);
+		for(int i=0; i<v.length; i++) {
+			if(v[i]==0) continue; //배열v에서 0,1,2번째만 출력하고 빈값(0)인 3,4번째 배열은 출력하지 않는다
+			System.out.println(v[i]+"");
+		}
+	}
+
+	private static int[] negativeNumbers(int[] n) {
+		int v[]=new int[n.length];
+		int cnt=0;
+		
+		for(int i=0; i<n.length; i++) {
+			if(n[i]<0) {
+				v[cnt]=n[i];
+				cnt++;
+			}
+		}
+		return v;
+	}
+}
+
+
+
+
+
+
+
+#(!-2)47번
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]= {5,4,1,3,2};
+		double v[]=statistics(n);
+		System.out.println(v[0]);
+		System.out.println(v[1]);
+		System.out.println(v[3]);
+	}
+
+	private static double[] statistics(int[] n) {
+		double v[]=new double[4];
+		int max=n[0];
+		for (int i=0; i<v.length; i++) if(n[i]>max) max=n[i];
+		v[0]=max;
+		return v;
+	}
+	
+	
+	나머지는 여러분이
+	
+}
+
+
+
+사진찍어둠
+마지막 두줄 없애고 밑에 이거 추가
+return new double[] {max,min,total,mean};
+
+#47번 내가 마무리한거_statistics함수에서 v.length를 n.length로 바꿈
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]= {5,4,1,3,2};
+		double v[]=statistics(n);
+		System.out.println(v[0]);
+		System.out.println(v[1]);
+		System.out.println(v[2]);
+		System.out.println(v[3]);
+	}
+
+	private static double[] statistics(int[] n) {
+		double v[]=new double[4];
+		
+		int max=n[0];
+		for (int i=0; i<n.length; i++) if(n[i]>max) max=n[i];
+		v[0]=max;
+		
+		int min=n[0];
+		for (int i=0; i<n.length; i++) if(n[i]<min) min=n[i];
+		v[1]=min;
+		
+		int total=0;
+		for (int i=0; i<n.length; i++) total+=n[i];
+		v[2]=total;
+		
+		int mean=0;
+		mean=total/n.length;
+		v[3]=mean;
+		
+		return v;
+	}
+	
+	
+}	
+
+
+#(1-2) 52번
+51번 참고
+#??
+import javax.swing.JOptionPane;
+
+public class Test {
+
+	public static void main(String[] args) {
+		String v=JOptionPane.showInputDialog("정수입력");
+		System.out.println(v+111); //문자열타입이니까 덧셈해도 결과값이 문자열붙이기가 됨
+		int n=Integer.parseInt(v);// 문자열->숫자로 바꿈
+		
+	}
+	
+}
+
+
+
+#(1-2)

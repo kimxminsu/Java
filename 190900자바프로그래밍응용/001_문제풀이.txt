@@ -1,0 +1,83 @@
+001_실습 문제풀이
+
+42번
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {-76,100,-98,-76,46};
+		int v=max(n);
+		System.out.println(v);
+	}
+	private static int max(int[] n) {
+		int	max=n[0];
+		for (int i = 0; i < n.length; i++) {
+			if(n[i]>=max) max=n[i];
+		}
+		return max;
+	}
+}
+
+46번
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {-76,100,-98,-76,46};
+		int v[]=negativeNumbers(n);
+		for (int i = 0; i < v.length; i++) {
+			System.out.print(v[i]+" ");
+		}
+	}
+	private static int[] negativeNumbers(int[] n) {
+		int	size=0;
+		for (int i = 0; i < n.length; i++) if(n[i]<0) size++;
+		int	m[]=new int[size];
+		for (int i = 0, k=0; i < n.length; i++) if(n[i]<0) m[k++]=n[i];
+		return m;
+	}
+}
+
+52번
+public class Test {
+	public static void main(String[] args) {
+		String	v=JOptionPane.showInputDialog("정수를 입력하세요");
+		if(Integer.parseInt(v)%2==0) JOptionPane.showMessageDialog(null, "짝수");
+		else JOptionPane.showMessageDialog(null, "홀수");
+	}
+}
+
+
+27쪽 40번
+public class Test {
+	public static void main(String[] args) {
+		String s="한국,미국,이탈리아,브라질,일본,중국,프랑스,영국,독일";
+		String	v[]=s.split(",");
+		for (int i = 0; i < v.length; i++) {
+			if(v[i].length()>=3) System.out.println(v[i]);
+		}
+	}
+}
+
+27쪽 42번
+public class Test {
+	public static void main(String[] args) {
+		String log1="2019-03-21 15:52:17 [210.23.45.123]: login success [id:yhkim]";
+		String log2="2019-03-22 03:11:48 [117.116.115.114]: login failed [id:gdhong]";
+		System.out.println(getIP(log1));
+		System.out.println(getIP(log2));
+	}
+	private static String getIP(String log) {
+		return log.substring(log.indexOf("[")+1, log.indexOf("]"));
+	}
+}
+
+27쪽 43번
+public class Test {
+	public static void main(String[] args) {
+		String log1="2019-03-21 15:52:17 [210.23.45.123]: login success [id:yhkim]";
+		String log2="2019-03-22 03:11:48 [117.116.115.114]: login failed [id:gdhong]";
+		System.out.println(isSuspiciousAccess(log1));
+		System.out.println(isSuspiciousAccess(log2));
+	}
+	private static boolean isSuspiciousAccess(String log) {
+		int	hour=Integer.parseInt(log.substring(11, 13));
+		return hour>=0 && hour<=5 && log.contains("login failed");
+	}
+}

@@ -1,0 +1,58 @@
+#1 : (5) p80
+package no1;
+
+public class Dog extends Animal{
+	@Override
+	String speak() {
+		// TODO Auto-generated method stub
+		return "멍멍";
+	}
+}
+package no1;
+
+public class test {
+
+	public static void main(String[] args) {
+		Animal cat=new Animal() {
+			@Override
+			String speak() {
+				return "야옹";
+			}
+		}
+		//Animal cat=;
+		System.out.println(cat.speak());
+
+	}
+
+}
+#2 인터페이스 실습D
+package no1;
+
+public interface BankingAction {
+	//아래3줄 인터페이스
+	void deposit(double money);
+	void withdraw(double money);
+	double getBalance();
+	
+}
+package no1;
+
+public class Test {
+	public static void main(String[] args) {
+		BankingAction acc = new BankingAction() {
+			double balance;
+			@Override
+			public void deposit(double money) {
+				balance+=money;
+			}
+			@Override
+			public void withdraw(double money) {}
+			@Override
+			public double getBalance() {
+				return balance;
+			}
+		};
+		acc.deposit(1000);
+		System.out.println(acc.getBalance());
+	}
+}

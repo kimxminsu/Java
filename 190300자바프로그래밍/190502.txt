@@ -1,0 +1,88 @@
+public class A190502 {
+	public static void main(String[] args) {
+		//X x=new X(); //생성자(X:클래스, x=참조변수)
+		
+		Robot robot=new Robot();
+		robot.id="R2D2"; //robot.id=new String("R2D2"); 생략가능
+		robot.location=new Point(); //이게 없으면 null인 상태에서 x,y를 찾으려하니 오류발생
+		robot.location.x=200; 
+		robot.location.y=150;
+		System.out.println(robot.id);
+		System.out.println(robot.location.x);
+	}
+}
+
+
+//아래 클래스 정의문의 생략된 부분을 모두 찾으시오
+public class X extends Object{ //sysout 상속
+	public X() {
+		super();
+	}
+}
+
+
+
+public class Point {
+	int x, y;
+}
+
+
+
+public class Robot {
+	String id;
+	Point location; //int x,y;
+}
+
+
+public class A190502 {
+public static void main(String[] args) {
+	Student s=new Student("홍길동",95);
+	Teacher t=new Teacher("마이클","영어");
+	System.out.println(s);
+	System.out.println(t);
+	
+	Person p[]=new Person[2]; //Object p[]=new Object[2]; 둘중에 하나 골라
+	p[0]=s;
+	p[1]=t;
+	for (int i = 0; i < p.length; i++) {
+		System.out.println(p[i]);
+	}
+}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Person p=new Person("마이클");
+		//p.name="스미스"; name 필드 값 변경 setName()
+		//System.out.println(p.name); name 필드 값 읽기 getName()
+		p.setName("스미스");//간접 접근
+		System.out.println();
+		p.getName()
+		
+	}
+}
+
+
+
+public class User {
+	private String email;
+	private String startDate;
+	public User(String email, String startDate) {
+		this.email=email;
+		this.startDate=startDate;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String name) {
+		this.email = email;
+	}
+	
+}
+
+public class Test {
+	public static void main(String[] args) {
+		User user=new User("a","b");
+		System.out.println(user.getEmail());
+	}
+}

@@ -1,0 +1,32 @@
+//(1-2) #2
+
+public class Test {
+
+	public static void main(String[] args) {
+		String title="자료구조";
+		int year=2017;
+		double time=2.5;
+		boolean dubYN=true;
+		char language='한';
+		System.out.println(title+","+year+","+time+","+dubYN+","+language);
+	}
+
+}
+
+//(1-1) p5
+import java.util.Arrays;
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]= {32,54,65,21,99};
+		Arrays.sort(n); //작은순으로 정렬
+		//Arrays.parallelSort(n); //L7이 실행이 안되면 이걸 사용
+		//System.out.println(Arrays.toString(n)); //배열을 문자열로
+		System.out.println(n[n.length-1]);
+	}
+
+}
+
+
+
+

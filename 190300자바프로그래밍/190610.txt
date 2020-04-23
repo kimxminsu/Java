@@ -1,0 +1,59 @@
+#019_Thread 8번?
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Window extends JFrame{
+	JLabel imageDisplay=new JLabel();
+	public Window() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//x누르면 exit(종료)
+		add(imageDisplay);//
+		Thread thread1=new Thread();{
+			@Override
+			public void run() {
+				updateTime();
+			}
+		};
+		thread1.start();
+		Thread thread2=new Thread() {
+			public void run() {
+				updateImage();
+			}
+		};
+		thread2.start();
+	}
+	protected void updateImage() {
+		File dir=new File("C:/Windows/System32");
+		File files[]=dir.listFiles();
+		for(int i=0; i<files.length;i++) {
+			imageDisplay.setText(files[i].getAbsolutePath());
+			if(Files[i].getName().endsWith(".png")) {
+				ImageIcon image=new ImageIcon(files[i].getAbsolutePath());
+				imageDisplay.setIcon(image);
+				
+			}
+			try{
+				Thread.sleep(1000);
+			}catch(InterruptedException);
+			
+		}
+		
+	}
+	protected void updateTime() {
+		while(true) {//비효율적이래 ㅠㅠ힝 busywating cpu바빠쥬금
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			Date date=new Date(System.currentTimeMillis())
+			String v=sdf.format(date);
+			setTitle(v);
+			try{
+				Thread.sleep(1000);
+			}catch(InterruptedException);
+			
+		}
+	}
+
+}
+

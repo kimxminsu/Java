@@ -1,0 +1,86 @@
+퀴즈-00 문제풀이
+
+1번
+Member	m=new Member();
+m.name="홍길동";
+System.out.println(m.name);
+
+2번
+Baby	b=new Baby();
+b.weight=1.2;
+System.out.println(b.weight);
+Baby	v[]= {b};
+System.out.println(v[0].weight);
+
+3번
+Car	c1=new Car("05허1234","중형");
+Car	c2=new Car("09허5678","소형");
+System.out.println(c1);
+Car	v[]= {c1, c2};
+for (int i = 0; i < v.length; i++) {
+	System.out.println(v[i]);
+}
+
+4번
+Vehicle	c=new Vehicle();
+c.id="05허1234";
+c.location=new GPS();
+c.location.latitude=132;
+c.location.longitude=37;
+System.out.println(c.id);
+System.out.println(c.location.latitude);
+System.out.println(c.location.longitude);
+Vehicle	v[]= {c};
+System.out.println(v[0].id);
+System.out.println(v[0].location.latitude);
+System.out.println(v[0].location.longitude);
+
+5번
+public class X extends Object {
+	public X() {
+		super();
+	}
+}
+
+6번
+public class Stat {
+	public static int sum(int n, int m) {
+		return n+m;
+	}
+}
+
+7번
+public class Num {
+	public static double PI = 3.14;
+}
+
+8번
+Table	table=new Table();
+table.id="TB-001";
+Chair	chair=new Chair();
+chair.id="CH-001";
+Object	v[]= {table, chair};
+
+9번
+public class Animal {
+	String	id;
+	public Animal(String id) {
+		this.id=id;
+	}
+	@Override
+	public String toString() {
+		return id;
+	}
+}
+
+public class Dog extends Animal {
+	String	name;
+	public Dog(String id, String name) {
+		super(id);
+		this.name=name;
+	}
+	@Override
+	public String toString() {
+		return super.toString()+","+name;
+	}
+}

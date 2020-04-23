@@ -1,0 +1,135 @@
+#(3-1)6번_Test에 만들기
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class Test {
+	public static void main(String[] args) {
+		JFrame w=new JFrame("온도변환기");
+		JLabel jLabel=new JLabel("화씨온도");
+		JTextField jTextField=new JTextField(10);
+		JButton jButton=new JButton("변환");
+		
+		ActionListener actionListener=new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				double f=Double.parseDouble(jTextField.getText());//String으로 리턴됨
+				double c=(f-32.0)/1.8;
+				JOptionPane.showMessageDialog(null, "섭씨 온도:"+c);
+			}
+			
+		};//객체만 생성함
+		jButton.addActionListener(actionListener);//연걸
+		
+		w.setLayout(new FlowLayout());
+		w.add(jLabel);
+		w.add(jTextField);
+		w.add(jButton);
+		w.pack();//짜부러져있던걸 담을수있을만큼 자송 창크기 조정됨
+		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		w.setVisible(true); //마지막에 add한 요소(button)만 보임
+	}
+}
+
+#(3-1)6번_내 윈도우
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class F2C extends JFrame{ //온도변환기만의 window 클래스
+	JLabel jLabel=new JLabel("화씨온도");
+	JTextField jTextField=new JTextField(10);
+	JButton jButton=new JButton("변환");
+	public F2C() { //기본생성자_화면배치 및 pack(),종료설정
+		// TODO Auto-generated constructor stub
+//		setLayout
+//		버튼이랑 actionListener 연결 등
+//		super.setLayout(new FlowLayout()); //부모거라고 표시
+//		this.setLayout(new FlowLayout()); //부모거인데 나만의거라고 해도됨
+		setLayout(new FlowLayout());
+		add(jLabel);
+		add(jTextField);
+		add(jButton);
+		pack();//짜부러져있던걸 담을수있을만큼 자송 창크기 조정됨
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ActionListener actionListener=new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				double f=Double.parseDouble(jTextField.getText());//String으로 리턴됨
+				double c=(f-32.0)/1.8;
+				JOptionPane.showMessageDialog(null, "섭씨 온도:"+c);
+			}
+			
+		};//객체만 생성함
+		jButton.addActionListener(actionListener);//연걸
+		setVisible(true); //마지막에 add한 요소(button)만 보임
+		
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		F2C f2c=new F2C();
+		f2c.setVisible(true);
+	}
+}
+
+#(3-1)6번_inplement 
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class F2C extends JFrame implements ActionListener{ //온도변환기만의 window 클래스
+	JLabel jLabel=new JLabel("화씨온도");
+	JTextField jTextField=new JTextField(10);
+	JButton jButton=new JButton("변환");
+	public F2C() { //기본생성자_화면배치 및 pack(),종료설정
+		setLayout(new FlowLayout());
+		add(jLabel);
+		add(jTextField);
+		add(jButton);
+		pack();//짜부러져있던걸 담을수있을만큼 자동 창크기 조정됨
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jButton.addActionListener(this);//현재클래스의 객체//super=부모클래스의 객체
+		setVisible(true); //마지막에 add한 요소(button)만 보임
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		double f=Double.parseDouble(jTextField.getText());//String으로 리턴됨
+		double c=(f-32.0)/1.8;
+		JOptionPane.showMessageDialog(null, "섭씨 온도:"+c);
+		
+	}
+}
+
+
+
+public class Test {
+	public static void main(String[] args) {
+		F2C f2c=new F2C();
+		f2c.setVisible(true);
+	}
+}
+

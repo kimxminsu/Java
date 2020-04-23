@@ -1,0 +1,31 @@
+메소드_실습A
+public class Test {
+	public static void main(String[] args) {
+		int x=1, y=2, z=2;
+		
+		double value=func(x,y,z);
+		System.out.println(value);
+	}
+	
+	public static double func(int x, int y, int z) {
+//		return x-y/z; //x-(y/z)
+		return (double)(x-y)/(double)z;
+	}
+}
+
+실습B
+public class Test {
+	public static void main(String[] args) {
+		int x=10, y=30;
+		
+		printSum(x,y);
+	}
+	
+	public static void printSum(int x, int y) {
+		System.out.println(x);
+		System.out.println(x+y);
+		if(y<0) return;
+		System.out.println(y);
+	}
+}
+

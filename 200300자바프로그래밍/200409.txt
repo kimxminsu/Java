@@ -1,0 +1,121 @@
+#배열
+public class Test {
+	public static void main(String[] args) {
+		//지역변수는 초기화되지 않으면 오류
+		int value;
+		//System.out.println(value);
+		
+		//배열
+		int score[]; //저장공간은 아직 할당되지 않음
+		//score[0]=11; //오류
+		score=new int[3]; //크기 3의 배열 객체 생성(디폴트초기값 예-0)
+		
+		score[0]=11;
+		score[1]=22;
+		score[2]=33;
+		
+		System.out.println(score[0]);
+		System.out.println(score[1]);
+		System.out.println(score[2]);
+		System.out.println(score.length);
+	}
+}
+
+#for,length
+public class Test {
+	public static void main(String[] args) {
+		//배열
+		int score[]; //저장공간은 아직 할당되지 않음
+		score=new int[3]; //크기 3의 배열 객체 생성(디폴트초기값 예-0)
+		
+		score[0]=11;
+		score[1]=22;
+		score[2]=33;
+		
+		for(int i=0; i<score.length; i++) { //i<=2라고 하는거보다 length이용
+			System.out.println(score[i]);
+		}
+	}
+}
+
+#두줄,한줄
+		//두줄로 선언
+//		int score[];
+//		score=new int[3];
+		
+		//한줄로 선언
+		int score[]=new int[3];
+
+#v:score
+public class Test {
+	public static void main(String[] args) {
+		int score[]=new int[3];
+		
+		score[0]=11;
+		score[1]=22;
+		score[2]=33;
+		
+		for(int v : score) { //보통 v나 i 사용
+			System.out.println(v);
+		}
+	}
+}
+
+#한줄로
+		//한줄에
+		int score[]= {11,22,33};
+		
+		for(int v : score) {
+			System.out.println(v);
+
+#Arrays.toString
+import java.util.Arrays; //ctrl+shift+o
+
+public class Test {
+	public static void main(String[] args) {
+		//한줄에
+		int score[]= {11,22,33};
+		System.out.println(Arrays.toString(score));
+		
+		for(int v : score) {
+			System.out.println(v);
+		}
+	}
+}
+
+#[]위치
+int[] score= {11,22,33}; //int []score,,, 다됨
+
+#배열 범위 벗어난 경우(-1) 오류
+public class Test {
+	public static void main(String[] args) {
+		int []score= {11,22,33};
+		System.out.println(score[-1]);
+	}
+}
+
+#실습A-1
+public class Test {
+	public static void main(String[] args) {
+//		double score[];
+//		score=new double[1];
+//		score[0]=94.5;
+
+//		double score[]=new double[1];
+//		score[0]=94.5;
+		
+//		double score[]= {94.5};
+	}
+}
+
+#korea
+public class Test {
+	public static void main(String[] args) {
+		char country[]=new char[5];
+		country[0]='K';
+		country[1]='o';
+		country[2]='r';
+		country[3]='e';
+		country[4]='a';
+	}
+}

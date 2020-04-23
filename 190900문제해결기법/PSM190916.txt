@@ -1,0 +1,78 @@
+import java.util.Arrays;
+
+//(1-2) #17
+
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]= {5,7,9,1,3,5,8,2,4,9};
+		Arrays.sort(n);
+		System.out.print("[");
+		for(int i=0;i<n.length;i++) {
+			System.out.print(n[n.length-1-i]);
+			if(i<n.length-1) System.out.print(",");
+		}
+		System.out.println("]");
+	}
+
+}
+
+
+import java.util.Arrays;
+
+//(1-2) #18
+
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]= {5,7,9,1,3,5,8,2,4,9};
+		Arrays.sort(n);
+		for(int i=0;i<n.length/2;i++) {
+			int j=n[i];
+			n[i]=n[n.length-1-i];
+			n[n.length-1-i]=j;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+		}
+		System.out.println(Arrays.toString(n));
+	}
+
+}
+
+
+
+
+---------
+#(1-2) 23
+
+public class Test {
+   public static void main(String[] args) {
+      int n[]= {4,4,1,5,1,3,4,1};
+      int max=n[0],max2=n[0],num=0;
+      for(int i=1; i<n.length; i++) {
+         if(n[i]>max) {
+            max=n[i];
+            num=i;
+         }
+      }
+      for (int i=1; i < n.length; i++) {
+         if(n[i]>max2) {
+            if(i!=num) max2=n[i];
+         }
+      }
+      System.out.println(max2);
+   }
+}
+
+#(1-2) 25
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 4, 5, 1, 6, 1, 3, 4, 5, 1 };
+//		double n[] = { 5, 1, 6, 1, 3, 4, 5, 1 };
+		Arrays.sort(n);
+		if (n.length % 2 == 0) {
+			System.out.println((n[(n.length) / 2] - 1 + n[((n.length) / 2)]) / 2);
+		} else
+			System.out.println(n[(n.length / 2) + 1]);
+	}
+}

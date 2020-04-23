@@ -1,0 +1,136 @@
+#(2-2) 인터페이스D
+
+public interface BankingAction {
+	void deposit(double money);
+	void withdraw(double money);
+	double getBalance();//구현이안돼있음
+}
+
+public class Test {
+	public static void main(String[] args) {
+		BankingAction account=new BankingAction() {//뒤에BA빨간줄 컨+스
+			double balance;//초기값=0;
+			@Override
+			public void withdraw(double money) {
+				// TODO Auto-generated method stub
+				balance=balance-money;
+			}
+			
+			@Override
+			public double getBalance() {
+				// TODO Auto-generated method stub
+				return balance;
+			}
+			
+			@Override
+			public void deposit(double money) {
+				// TODO Auto-generated method stub
+				balance=balance+money;
+			}
+		};
+		account.deposit(1000);
+		account.withdraw(500);
+		System.out.println(account.getBalance());
+	}
+}
+
+#(2-2)인터페이스F
+
+public interface VolumeAction {
+	void volumeUp();
+	void volumeDown();
+	int getVolume();
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		VolumeAction radio=new VolumeAction() {
+			int volumeLevel;
+			
+			@Override
+			public void volumeUp() {
+				// TODO Auto-generated method stub
+				volumeLevel++;
+			}
+			
+			@Override
+			public void volumeDown() {
+				// TODO Auto-generated method stub
+				volumeLevel--;
+			}
+			
+			@Override
+			public int getVolume() {
+				// TODO Auto-generated method stub
+				return volumeLevel;
+			}
+		};
+		radio.volumeUp();
+		radio.volumeUp();
+		radio.volumeUp();
+		radio.volumeDown();
+		System.out.println(radio.getVolume());
+	}
+}
+
+#(2-1) 익셉션
+
+public class User {
+	String id;
+	public User(String id) throws Exception { //throws~ 이거 써줘야돼 !
+		if(id.length()<5) {
+			throw new Exception("아이디 길이 오류");
+		}
+		this.id=id;
+	}
+}
+
+
+
+import java.io.FileInputStream;
+
+public class Test {
+	public static void main(String[] args) {
+		try {
+			User user=new User("skyyy");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+#(3-1) 1번
+ActionListener actionListener = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int n1 = Integer.parseInt(jTextField1.getText());
+				int n2 = Integer.parseInt(jTextField2.getText());
+				JOptionPane.showMessageDialog(null, n1 + n2);
+			}
+		};
+		jButton.addActionListener(actionListener);
+
+이걸로 대체가능
+
+#(3-1) 2번
+
+public class Window {
+	public Window() {
+		JLabel jLabel1=new JLabel("First number");
+		JLabel jLabel2=new JLabel("Second number");
+		setLayout(new FlowLayout());
+		this.add(jLabel1);
+		this.add(jTextField1);
+		add(jLabel2);
+		add(jTextField2);
+		add(jButton);
+		Action
+	}
+}
+
+()이걸로 대체
+
+#(3-1)

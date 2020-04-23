@@ -1,0 +1,166 @@
+import java.util.LinkedList;
+
+//(2-2) 8번
+
+public class Test {
+   public static void main(String[] args) {
+	  LinkedList<Integer> list=new LinkedList<>();
+	  for(int i=1;i<100;i++) {
+		  list.add(i);
+	  }
+	  list.remove(3);
+	  System.out.println(list);
+   }
+}
+
+import java.util.Arrays;
+
+//(2-2) 10번
+
+public class Test {
+   public static void main(String[] args) {
+	  int n[]= {3,4,5,6,7,0,0,0,0,0};
+	  for(int i=0;i<n.length-1;i++) {
+		  n[i]=n[i+1];
+	  }
+	  System.out.println(Arrays.toString(n));
+   }
+}
+
+import java.util.Arrays;
+
+//(2-2) 13번
+
+public class Test {
+   public static void main(String[] args) {
+	  char s[]= {'화','수','목','금','토','일'};
+	  System.out.println(Arrays.toString(s));//삽입전
+	  char t[]=new char[s.length+1];
+	  for(int i=1;i<t.length;i++) {
+		  t[0]='월';
+		  t[i]=s[i-1];
+	  }
+	  s=t;
+	  System.out.println(Arrays.toString(s));
+   }
+}
+
+
+
+
+#(3-3)연결리스트 직접 만들어보기
+
+//(3-3)
+
+public class Test {
+   public static void main(String[] args) {
+	  Node head=null;
+	  Node n1=new Node(1);
+	  Node n2=new Node(2);
+	  Node n3=new Node(3);
+	  head=n1;
+	  n1.next=n2;
+	  n2.next=n3;
+	  for(Node p=head; p!=null; p=p.next) {
+		  System.out.println(p.data+"=>");
+	  }
+   }
+}
+
+
+public class Node {
+	int data;//필드변수니까 알아서 0으로 초기화
+	Node next;//알아서
+	public Node(int data) {
+		this.data=data;
+	}
+}
+
+
+#첫번째 삽입
+
+//(3-3)
+
+
+public class Node {
+	int data;
+	Node next;
+	public Node(int data) {
+		this.data=data;
+	}
+}
+
+
+public class Test {
+   public static void main(String[] args) {
+	  Node head=null;
+	  Node n1=new Node(1);
+	  Node n2=new Node(2);
+	  Node n3=new Node(3);
+	  head=n1;
+	  n1.next=n2;
+	  n2.next=n3;
+	  
+	  Node newNode=new Node(7);
+	  newNode.next=head;
+	  head=newNode;
+	  
+	  for(Node p=head; p!=null; p=p.next) {
+		  System.out.println(p.data+"=>");
+	  }
+   }
+}
+
+
+
+#(3-4) 11_미완성
+
+
+
+
+public class SimpleList {
+	Node head;
+	public void addFirst(int data) {
+		Node newNode=new Node(data);
+		newNode.next=head;
+		head=newNode;
+	}
+	public void removeFirst() {
+		
+	}
+	public String toString() {
+		String v="";
+		for(Node p=head;p!=null;p=p.next) {
+			if(v.length()>0) v+="->";
+			v+=p.data;
+		}
+		return v;
+	}
+}
+
+
+
+
+
+
+
+public class Test {
+   public static void main(String[] args) {
+	  SimpleList list=new SimpleList();
+	  for(int i=1;i<=5;i++)list.addFirst(i);
+	  System.out.println(list);
+	  list.removeFirst();
+	  System.out.println(list);
+	  
+	  for(Node p=head; p!=null; p=p.next) {
+		  System.out.println(p.data+"=>");
+	  }
+   }
+}
+
+
+
+
+
+
+#

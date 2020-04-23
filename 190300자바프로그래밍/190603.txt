@@ -1,0 +1,23 @@
+#1
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Test {
+
+	public static void main(String[] args) {
+		for(char c='A';c<='Z';c++) {
+			System.out.println(c+" ");
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+			}
+		}
+		Thread_Consonant thread1=new Thread_Consonant();
+		thread1.start();
+		Thread_Vowel thread2=new Thread_Vowel();
+		thread2.start();
+		System.out.println("끝");
+		
+	}
+
+}

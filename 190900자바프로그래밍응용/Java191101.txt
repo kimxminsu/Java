@@ -1,0 +1,75 @@
+클래스생성-extends JFrame-open with 뭐시기
+
+레이아웃
+GroupLayout
+
+제목창
+properties-title
+
+색변경
+getContentPane-properties-background
+
+사이즈조절불가로 만들기
+JFrame-properties-숨긴거보기-size
+                         -resizable-체크해제
+
+버튼설정
+(1)더블클릭하기
+(2)우클릭-add event handler-action-actionPerformed
+button_add.addActionListener(new ActionListener() { //ActionListener 임플리먼츠 안한상태
+	public void actionPerformed(ActionEvent e) {
+		double n1=Double.parseDouble(textField_num1.getText());//string
+		double n2=Double.parseDouble(textField_num2.getText());
+		JOptionPane.showMessageDialog(null,"합산 결과="+(n1+n2));//(n1+n2)괄호 꼭해야됨!
+	}
+});
+
+변수명변경
+디자인-텍스트필드-properties-variable-textField_num1로 변경
+똑같이 num2로 변경
+버튼은 button_add로 하기 컴포넌트종류_구별하는다른명칭
+JLabel은 한번더 액세스 안하니까 이름 그대로둠
+
+
+새팝업창 가운데로
+JOptionPane.showMessageDialog(W2.this,"합산 결과="+(n1+n2));//(n1+n2)괄호 꼭해야됨!
+
+입력창(JTextField) 오른쪽정렬
+properties-horizontal...-RIGHT
+
+source코드에서 한글이 안보이는경우
+File-properties-Resource-Default-MS949->UTF8
+ISO-8859-1:아스키
+US:영문
+
+
+TextFile변수는 생성자밖에 필드변수로 있음
+Label은 생성자안에 변수로 있음
+예)
+class Student {
+	String id;//global변수-전역변수
+	Student() {
+		String x;//local변수-지역변수
+	}
+}
+
+global-local 변환 가능한버튼
+Lable(local)-properties-오른쪽위 세번째버튼(convert local to field)
+TextFile(global)-수동으로 한번 local한다음에 버튼으로 왔다갔다
+
+
+#W3
+north에 버튼을 뒀더니 꽉참! 난 안 채우고싶은데!
+north-Pannel(components+container:담을수있음)-Flowlayout-button올리기
+
+왔다리갔다리하는거
+JSlider
+
+name,city추가
+JTable-properities-model-...클릭-Column-insert
+
+
+
+#도서관리
+BorderLayout
+Jmenubar-Jmenu-Jmenuitem

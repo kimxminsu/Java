@@ -1,0 +1,164 @@
+#1
+public interface BankingAction {
+	void deposit(double money);
+	void withdraw(double money);
+	double getBalance();
+}
+
+public class BankAccount implements BankingAction {
+	String id;
+	double balance;
+	@Override
+	public void deposit(double money) {
+		balance+=money;
+	}
+	@Override
+	public void withdraw(double money) {
+		balance-=money;
+	}
+	@Override
+	public double getBalance() {
+		return balance;
+	}
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		BankAccount ba1=new BankAccount();
+		ba1.deposit(1000);
+		
+		//입금, 출금, 잔고확인만 처리하는 코드
+		BankingAction ba2=new BankAccount(); //BankingAction대신에 Object도 가능
+		ba2.deposit(2000);
+		
+		BankingAction ba3=new BankingAction() {
+			
+			@Override
+			public void withdraw(double money) {
+				balance-=money;
+			}
+			
+			@Override
+			public double getBalance() {
+				return balance;
+			}
+			
+			@Override
+			public void deposit(double money) {
+				balance+=money;
+			}
+		};
+		ba3.depoist(1000);
+		System.out.println(ba3.getBalance());
+	}
+}
+
+#2
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class Test {
+	public static void main(String[] args) {
+		try {
+			FileInputStream fis=new FileInputStream("C:/A.txt");
+			fis.read(); // 밑에 exception으로 하면 오류안난당 꺄!
+		} catch (Exception e) { //자신(File~) 참조변수 받아도되고 부모(Exception) 받아도됨
+			e.printStackTrace();
+		} //ctrl+space 2번쨰거
+	}
+}
+
+
+public class User {
+	public User(String string) throws Exception { //이거생김
+		if(password.length()<6) {
+			Exception e=new Exception("패스워드 길이 오류");
+			throw e; //오류나서
+		}
+		this.password=password;
+	}
+	@Override
+	public String toString() {
+		return password;
+	}
+	String password;
+}
+
+#3 인터페이스 실습
+
+public class User {
+	String email;
+	public User(String email) throws Exception {
+		if (email.contains("@")==false) {
+			Exception e=new Exception("@ 누락");
+			throw e;
+		}
+		this.email=email;
+	}
+	@Override
+	public String toString() {
+		return email;
+	}
+	
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		try {
+			User user1=new User("gdhong@ks.ac.kr");
+			System.out.println(user1);
+			User user2=new User("yhlee");
+			System.out.println(user2);
+					
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}
+#박싱, 언박싱
+
+public class Test {
+	public static void main(String[] args) {
+		Integer n=new Integer(95);
+		//Integer n=95; //int랑 integer 관련
+		//String s=new String("뭐시기");
+		//String s="뭐시기";
+		String v="점수="+n.toString();//"95"
+		System.out.println(v);
+		
+		int score=3+n.intValue(); //95
+		System.out.println(score);
+		
+	}
+}
+#박싱,언박싱2
+
+public class Test {
+	public static void main(String[] args) {
+		Integer n=95;//자동박싱
+		int m=n;//자동언박싱
+		
+		System.out.println(n);//integer 객체
+		System.out.println(m);//int 값
+	}
+}
+
+#박싱, 언박싱 실습 
+
+public class Test {
+	public static void main(String[] args) {
+		Double pi=3.14; //Double pi=new Double(3.14);
+		double x=pi; // double x-pi.doubleValue();
+		Integer n[]=new Integer[10];
+		for(int i=0;i<.n.length;i++) {
+			//n[i]=new Integer(i+1);
+			n[i]=i+1;
+		}
+		//Integer n[]=[1,2,3,4,5,6,7,8,9,10]; //정수를 넣었지만 알아서 boxing된다
+		
+	}
+}

@@ -1,0 +1,86 @@
+1.
+public class Book extends Object {
+	 
+	public Book() {
+		super();
+	}
+	
+}
+
+2.
+User u1 = new User();
+u1.id = "sun";
+u1.location.x = 100;
+u1.location.y = 150;
+
+3.
+public class Score {
+	String value;
+	
+	
+	
+	@Override
+	public String toString() {
+	 return value;
+	}
+}
+
+4.
+String value = "210-215-200";
+	String value1[] = value.split("-");		
+
+	Record r = new Record();
+	r.value1[0]=210;
+	r.value1[1]=215;
+	r.value1[2]=200;
+	System.out.println(r);
+
+5.
+public class X {	}
+public class Y extends X {	}
+public class Z extends X{	}
+
+6.
+A a = new A();
+B b = new B();	
+Object o[] = new Object[2]; 	
+o[0] = a;
+o[1] = b;
+
+7.
+public class Player {
+	private String name;
+
+	public void setname(String name) {
+		this.name = name;	
+	}
+
+	public String getname() {
+		return name;
+	}
+	
+public class Test {
+	public static void main(String[] args) {
+		Player p = new Player();
+		
+		p.setname("∏∂¿Ã≈¨");
+		
+		System.out.println(p.getname());
+	 }
+}
+
+8.A a = new A();
+B b = new B();
+
+Object n[] = new Object[5];
+n[0] = a;
+n[1] = b;
+n[2] = a;
+n[3] = b;
+n[4] = a;
+     
+int count = 0;
+	for(int i=0; i<n.length; i++) {
+		if(n[i] instanceof A) count++;
+	}
+	System.out.println(count);	

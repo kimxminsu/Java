@@ -1,0 +1,159 @@
+#(1-2) 15번
+
+#(1-2)17번
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {1,3,5,6,4,2};
+		Arrays.sort(n);//오름차순
+		for(int i=0;i<n.length/2;i++) {
+			int temp=n[i];
+			n[i]=n[n.length-1-i];
+			n[n.length-1-i]=temp;
+		}
+		System.out.println(Arrays.toString(n));
+	}
+}
+
+
+#(1-2) 22번 중복 제거
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {1,3,5,6,4,2};
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<n.length;i++) {
+			if(n[i]>max) max=n[i];
+		}
+		
+		int second=Integer.MIN_VALUE;
+		for(int i=0;i<n.length;i++) {
+			if(n[i]==max) continue;
+			if(n[i]>second) second=n[i];
+		}
+		System.out.println(max);
+		System.out.println(second);
+	}
+}
+
+
+#(!-2) 23번 중복포함
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {1,3,5,6,4,2};
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<n.length;i++) {
+			if(n[i]>max) max=n[i];
+		}
+		
+		int second=Integer.MIN_VALUE,maxCount=0;
+		for(int i=0;i<n.length;i++) {
+			if(n[i]==max) {maxCount++; continue;}
+			if(n[i]>second) second=n[i];
+		}
+		System.out.println(max);
+		if(maxCount==1) System.out.println(second);
+		else System.out.println(max);
+}
+
+
+
+#???
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {1,3,5,6,4,2};
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<n.length;i++) {
+			if(n[i]>max) max=n[i];
+		}
+		
+		int second=Integer.MIN_VALUE;
+		boolean secondChange=false;
+		for(int i=0;i<n.length;i++) {
+			if(n[i]==max) continue;
+			if(n[i]>second) {
+				secondChange=true;
+				second=n[i];
+			}
+		}
+		if(secondChange==true) System.out.println(second);
+		else System.out.println("none");
+	}
+}
+
+
+
+#(1-2) 25번
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {4,1,3,2};
+		Arrays.sort(n);
+		if(n.length%2==1) System.out.println(n[n.length/2]);//자료의개수가 홀수개
+		else {//짝수개
+			double avg=(n[n.length/2-1]+n[n.length/2])/2.;
+			System.out.println(avg);
+		}
+		
+	}
+}
+
+#(1-2)26번 nlogn+n
+import java.util.Arrays;
+//nlogn+n 정렬+for
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {4,1,2,1,1,4,3,3};
+		Arrays.sort(n);
+		System.out.println(n[0]+" ");
+		for(int i=1;i<n.length;i++) {
+			if(n[i-1]!=n[i]) System.out.println(n[i]+" ");
+		}
+		
+	}
+}
+
+#(1-2)26번 n 단, 자료의 값의 범위제한(0-9)
+import java.util.Arrays;
+//n+c번 = n번
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {4,1,2,1,1,4,3,3};
+		int c[]=new int[10];//count배열 0~9
+		for(int i=0;i<n.length;i++) {
+			c[n[i]]++;
+		}
+		for(int i=0;i<c.length;i++) {
+			if(c[i]>0) System.out.println(i+" ");
+		}
+		System.out.println(Arrays.toString(c));
+	}
+}
+
+#(!-2)26번 응용-정렬 sort를 대신할 순 없음
+단 숫자의 경우는 가능
+
+import java.util.Arrays;
+//n+c번 = n번
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {4,1,2,1,1,4,3,3};
+		int c[]=new int[10];//count배열 0~9
+		for(int i=0;i<n.length;i++) {
+			c[n[i]]++;
+		}
+		for(int i=0;i<c.length;i++) {
+			for(int j=0;j<c[i];j++) {
+				System.out.print(i+" ");
+			}
+		}
+	}
+}
+

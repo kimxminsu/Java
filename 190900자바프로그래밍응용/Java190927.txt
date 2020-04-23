@@ -1,0 +1,192 @@
+#(2-2) 클래스G
+
+public class DateYMD {
+	int year,month,day;
+}
+
+
+
+(1)생성자 이용안함
+public class Member {
+	String id;
+	DateYMD date;
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Member m=new Member();
+		m.id="M001";
+		m.date=new DateYMD();
+		m.date.year=2019;
+		m.date.month=2019;//m은 객체를 만들어서 필드생김 문제없음,date안에 yMD는 DateYMD클래스의 객체를 만들어야하는데 안만들어져서 메모리상에 필드가 없어서 null값
+
+	}
+
+}
+
+(2)생성자 이용
+
+
+public class Member {
+	String id;
+	DateYMD date=new DateYMD();//=new~이거 여기서 써도 필드 생성됨
+	public Member(String id, int year, int month, int day) {
+		this.id=id;
+//		this.date=new DateYMD();//year,mon...필드 생성ㅇ
+		this.date.year=year;
+		this.date.month=month;
+		this.date.day=day;
+	}
+	
+	public String toString() {
+		return "회원아이디:"+id+", 가입일:"+this.date.year+"년 "+this.date.month+"월 "+this.date.day+"일";
+				
+	}
+	
+}
+
+
+
+public class Test {
+	public static void main(String[] args) {
+		Member m1=new Member("M001",2019,3,5);
+		System.out.println(m1.toString());
+	}
+
+}
+
+
+
+
+
+
+
+
+#H
+
+
+
+
+public class Applicant {
+	int seqNo;
+	EvaluationResult evalResult;
+	public Applicant(int seqNo,int scoreOfTestA,char grade) {
+		this.seqNo=seqNo;
+		this.evalResult=new EvaluationResult();//괄호(파라미터)안에 생성자 내에서 필드에 대입해도 되는데 교수님이 개념적 이해 도우려고 기본생성자 사용해서 객체 만들어서 필드 초기화 유도한 방식
+		this.evalResult.scoreOfTestA=scoreOfTestA;
+		this.evalResult.gradeOfTestB=gradeOfTestB;
+	}
+
+}
+
+
+public class EvaluationResult {
+	int scoreOfTestA;
+	char gradeOfTestB;
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		Applicant a1=new Applicant(1,98,'C'); //빨간줄뜨면 ctrl+space 2번째거
+	}
+
+}
+
+
+
+
+
+
+#상속관계객체참조 실습B p22
+public class Test {
+	public static void main(String[] args) {
+		Rectangle r=new Rectangle(); //이거없애고
+		Circle c1=new Circle();
+		Circle c2=new Circle();//얘까지
+		
+		
+		//한번에 담으려면 object배열 -부모클래스이기때문에!
+		Object v[]=new Object[3];
+		v[0]=r;//=new Rectangle();
+		v[1]=c1;//=new Circle();
+		v[2]=c2;//new Circle();
+	}
+
+}
+
+#(2-2) 인터페이스D
+
+public interface BankingAction {
+	void deposit(double money);
+	void withdraw(double money);
+	double getBalance();//구현이안돼있음
+}
+
+public class Test {
+	public static void main(String[] args) {
+		BankingAction account=new BankingAction() {//뒤에BA빨간줄 컨+스
+			double balance;//초기값=0;
+			@Override
+			public void withdraw(double money) {
+				// TODO Auto-generated method stub
+				balance=balance-money;
+			}
+			
+			@Override
+			public double getBalance() {
+				// TODO Auto-generated method stub
+				return balance;
+			}
+			
+			@Override
+			public void deposit(double money) {
+				// TODO Auto-generated method stub
+				balance=balance+money;
+			}
+		};
+		account.deposit(1000);
+		account.withdraw(500);
+		System.out.println(account.getBalance());
+	}
+}
+
+#(2-2)인터페이스F
+
+public interface VolumeAction {
+	void volumeUp();
+	void volumeDown();
+	int getVolume();
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		VolumeAction radio=new VolumeAction() {
+			int volumeLevel;
+			
+			@Override
+			public void volumeUp() {
+				// TODO Auto-generated method stub
+				volumeLevel++;
+			}
+			
+			@Override
+			public void volumeDown() {
+				// TODO Auto-generated method stub
+				volumeLevel--;
+			}
+			
+			@Override
+			public int getVolume() {
+				// TODO Auto-generated method stub
+				return volumeLevel;
+			}
+		};
+		radio.volumeUp();
+		radio.volumeUp();
+		radio.volumeUp();
+		radio.volumeDown();
+		System.out.println(radio.getVolume());
+	}
+}

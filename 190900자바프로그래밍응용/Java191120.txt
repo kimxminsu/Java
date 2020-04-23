@@ -1,0 +1,72 @@
+<CounselInput>
+*상담저장버튼
+액션리스너 안에
+saveMemo(); 컨스 create method 2번째버튼
+protected void saveMemo() {
+		String name=textField_name.getTExt();
+		if(name.equals("")) {
+			JOptionPane.showMessageDialog(this, "이름을 입력하세요.");
+			return;
+		}
+	}
+
+
+상담입력칸 밑에 textArea를 textArea_memo라고 이름 바꾸기
+convert local to field
+
+
+	protected void saveMemo() {
+		String name=textField_name.getText();
+//		if(name.equals("")) {
+//			JOptionPane.showMessageDialog(this, "이름을 입력하세요.");
+//			return;
+//		}
+		if(name.equals("")) {message("이름을 입력하세요."); return;
+		}
+		String memo=textArea_memo.getText();
+//		if(name.equals("")) {
+//			JOptionPane.showMessageDialog(this, "상담 내용을 입력하세요.");
+//			return;
+//		}
+		
+}
+
+		if(name.equals("")) {message("상담 내용을 입력하세요."); return;
+		}
+		String address=(String) comboBox_address.getSelectedItem(); //오류검사안해도됨
+		if(!rediobutton_male.isSelected() &&!radiobutton_female.isSelected()) {
+			message("성별을 선택하세요"); return;
+		}
+		String gender=radiobutton_female.isSelected()? "여자" :"남자";
+		String foreigner=checkBox_foreigner.isSelected()? "외국인" :한국인";"
+		String v=name+"\t"+address+"\t"+gender+"\t"+foreigner+"\t"+memo;
+		System.out.println(v);
+	}
+	private void message(String s) {
+		JOptionPane.showMessageDialog(this, s);
+	}
+
+#(4-2) 연월일시
+new Date() //현재 연월일시 초까지
+
+SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss (E)");
+String date=sdf.format(new Date());
+
+#3번
+FileWriter oF=new FileWriter("memo.txt",true); //exception발생 ->try catch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

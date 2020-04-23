@@ -1,0 +1,125 @@
+#이전거
+import java.util.Arrays;
+
+//(1-2) #28
+
+public class Test {
+
+   public static void main(String[] args) {
+      int n[]= {1,2,3,4,5};
+      for(int i=0;i<n.length/2;i++) {
+         int j=n[i];
+         n[i]=n[n.length-1-i];
+         n[n.length-1-i]=j;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+      }
+      int k=2;
+      for(int i=0;i<k/2;i++) {
+         int j=n[i];
+         n[i]=n[k-1-i];
+         n[k-1-i]=j;
+      }
+      for(int i=0;i<(n.length-k)/2;i++) {
+         int j=n[k+i];
+         n[k+i]=n[n.length-1-i];
+         n[n.length-1-i]=j;
+      }
+      System.out.println(Arrays.toString(n));
+   }
+
+}
+
+#밀어내기 C_교수님
+
+//(1-2) #28
+
+public class Test {
+
+   public static void main(String[] args) {
+      int[]= {1,2,3,4,5};
+      rev(n,0,n.length-1);
+   }
+   
+   private static void rev(int[] n, int s, int e) {
+	   for( ;s<e; ) {
+		   swap(n[s],n[e]);
+		   s++;
+		   e--;
+	   }
+   }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#(3-2) p5
+import java.util.LinkedList;
+
+//(3-2) P8 연결리스트
+
+public class Test {
+   public static void main(String[] args) {
+	  LinkedList<Integer> list=new LinkedList<Integer>();
+	  list.add(5); //addLast()
+	  list.add(8);
+	  list.add(4);
+	  System.out.println(list);
+   }
+}
+
+
+import java.util.LinkedList;
+
+//(2-2) 2번
+
+public class Test {
+   public static void main(String[] args) {
+	  LinkedList<Integer> list=new LinkedList<>();
+	  for(int i=1;i<=100;i++) {
+		  list.add(i);
+	  }
+	  System.out.println(list);
+   }
+}
+
+import java.util.LinkedList;
+
+//(2-2) 3번
+
+public class Test {
+   public static void main(String[] args) {
+	  LinkedList<String> list=new LinkedList<>();
+	  list.add("한국");
+	  list.add("미국");
+	  list.add("일본");
+	  System.out.println(list);
+   }
+}
+
+
+import java.util.LinkedList;
+import java.util.Random;
+
+//(2-2) 5번
+
+public class Test {
+   public static void main(String[] args) {
+	  LinkedList<Integer> list=new LinkedList<>();
+	  Random random=new Random();
+	  for(int i=0;i<1000000;i++) {
+		  list.add(random.nextInt(101));
+	  }
+	  System.out.println(list);
+   }
+}
+

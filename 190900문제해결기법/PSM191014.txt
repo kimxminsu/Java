@@ -1,0 +1,78 @@
+
+#10_숫자가 3,2,1일 경우만 가능
+import java.util.Stack;
+
+public class Test {
+	public static void main(String[] args) {
+		String e="3 1 2 / *";
+		System.out.println(postfixEval(e));
+		
+	}
+	private static double postfixEval(String e) {
+		Stack<Double> stack=new Stack<>();
+		double n1,n2;
+		for(String token:e.split("\\s+")) {
+			if(token.equals("+")||token.equals("-")||token.equals("*")||token.equals("/"));
+			else stack.push(Double.parseDouble(token));
+			if(token.equals("/")) {
+				n2=stack.pop();
+				n1=stack.pop();
+				stack.push(n1/n2);
+			}
+			if(token.equals("*")) {
+				n2=stack.pop();
+				n1=stack.pop();
+				stack.push(n1*n2);
+			}
+		}
+		return stack.pop();
+	}
+}
+
+#11_오류남
+import java.util.Stack;
+
+public class Test {
+	public static void main(String[] args) {
+		String e="34 12 25/*";
+		String s="";
+		for(Character c:e.toCharArray()) {
+			if(c.equals('+')||c.equals('-')||c.equals('*')||c.equals('/')) {
+				s=s+" "+c+" ";
+			}
+			else {
+				s=s+c;
+			}
+		}
+		System.out.println(postfixEval(s));
+	}
+	private static double postfixEval(String s) {
+		Stack<Double> stack=new Stack<>();
+		double n1,n2;
+		
+		for(String token:s.split("\\s+")) {
+			if(token.equals("+")) {
+				n2=stack.pop();
+				n1=stack.pop();
+				stack.push(n1+n2);
+			}
+			if(token.equals("-")) {
+				n2=stack.pop();
+				n1=stack.pop();
+				stack.push(n1-n2);
+			}
+			if(token.equals("*")) {
+				n2=stack.pop();
+				n1=stack.pop();
+				stack.push(n1*n2);
+			}
+			if(token.equals("/")) {
+				n2=stack.pop();
+				n1=stack.pop();
+				stack.push(n1/n2);
+			}
+			else stack.push(Double.parseDouble(token));
+		}
+		return stack.pop();
+	}
+}

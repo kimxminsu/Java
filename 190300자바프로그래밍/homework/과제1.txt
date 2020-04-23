@@ -1,0 +1,54 @@
+4¹ø
+public class Test04 {
+	public static void main(String[] args) {
+		System.out.println("È«\n±æ\nµ¿\n");
+	}
+}
+
+6¹ø
+public class Test06 {
+	public static void main(String[] args) {
+		String name="º½";
+		int age=3;
+		double weight=25.0;
+		char animalCode='A';
+		boolean isVaccinated=false;
+	}
+}
+
+7¹ø
+public class Test07 {
+	public static void main(String[] args) {
+		double x=1.0/2;
+		System.out.println(x);
+	}
+}
+
+12¹ø
+public class Test12 {
+	public static void main(String[]args) {
+		long n = 3000000000L;
+		System.out.println(n);
+	}
+}
+
+13¹ø
+public class Test13 {
+	public static void main(String[]args) {
+		long n=2000000000;
+		long m=2000000000;
+		long v=n+m;
+		System.out.println(v);
+	}
+}
+
+14¹ø
+public class Test14 {
+	public static void main(String[] args) {
+		String name="ÀÌ¿µÈñ";
+		char gender='W';
+		double gpa=4.37;
+		int totalCredits=45;
+		boolean isForigner=false;
+	}
+}

@@ -1,0 +1,56 @@
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {5,1,8,3,2};
+		System.out.println(max(n,n.length-1));
+	}
+}
+
+#배열 최대값
+public class Test {
+	public static void main(String[] args) {
+		int n[]= {2,5,1,8,9,7,3,4};
+		System.out.println(max(n,0,n.length-1));
+	}
+	private static int max(int[] n, int left, int right) {
+		if(left==right) return
+				int m=(left+right)/2;
+		int v1=max(n,left,m);
+		int v2=max(n,m+1,right);
+		return //v1,v2의 최대값
+//		합의경우는 리턴을 이렇게 하면됨 sum(n,0,3)+sum(n,4,7)
+	}
+}
+
+
+#10번
+public class Test {
+	public static void main(String[] args) {
+		String s="South, Korea 안녕";
+		char v[]=s.toCharArray();
+		toUpper(v,0);
+		System.out.println(v);
+	}
+	private static void toUpper(char[] v,int i) {
+//		i++;
+		if(v[i]>='a'&&v[i]<='z') v[i]-=32;
+//		toUpper(v,i);
+	}
+}
+
+
+#11번
+public class Test {
+	public static void main(String[] args) {
+		String s="South, Korea";
+		char v[]=s.toCharArray();
+		countUpper(v, 0)
+		System.out.println();
+		
+	}
+	
+	private static void countUpper(char[] v,int i) {
+		if(i=v.length-1) return;
+		return v[i]+sum(v,i+1); //v[i]>='A' 즉, 대문자이면 +1, 아니면 +0;
+		toUpper(v,++i); 
+	}
+}

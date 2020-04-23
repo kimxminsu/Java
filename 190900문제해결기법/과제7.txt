@@ -1,0 +1,135 @@
+6번
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 7, 2, 8, 4, 1 };
+		System.out.println(sum(n, n.length - 1));
+	}
+
+	private static int sum(int[] n, int i) {
+		if (i == 0)
+			return n[i];
+		return n[i] + sum(n, i - 1);
+	}
+}
+
+7번
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 1, 2, 3, 4, 5 };
+		System.out.println(sum(n, 0));
+	}
+
+	private static int sum(int[] n, int i) {
+		if (i == n.length - 1)
+			return n[i];
+		return n[i] + sum(n, i + 1);
+	}
+}
+
+8번
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 5, 1, 8, 3, 2 };
+		System.out.println(max(n, n.length - 1));
+	}
+
+	private static int max(int[] n, int i) {
+		if (i == 0)
+			return n[i];
+		int v1 = n[i];
+		int v2 = max(n, i - 1);
+		return (v1 > v2) ? v1 : v2;
+	}
+}
+
+9번
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 5, 1, 8, 3, 2 };
+		System.out.println(max(n, 0, n.length - 1));
+	}
+
+	private static int max(int[] n, int left, int right) {
+		if (left == right)
+			return n[left];
+		int m = (left + right) / 2;
+		int v1 = max(n, left, m);
+		int v2 = max(n, m + 1, right);
+		return (v1 > v2) ? v1 : v2;
+	}
+}
+
+10번
+public class Test {
+	public static void main(String[] args) {
+		String s = "South, Korea 안녕";
+		char v[] = s.toCharArray();
+		toUpper(v, 0);
+		System.out.println(v);
+	}
+
+	private static void toUpper(char[] v, int i) {
+		if (i == v.length)
+			return;
+		if (v[i] >= 'a' && v[i] <= 'z')
+			v[i] -= 32;
+		toUpper(v, i + 1);
+	}
+}
+
+11번
+public class Test {
+	static int count = 0;
+
+	public static void main(String[] args) {
+		String s = "South, Korea";
+		char v[] = s.toCharArray();
+		System.out.println(countUpper(v, 0));
+	}
+
+	private static int countUpper(char[] v, int i) {
+		if (i == v.length - 1)
+			return count;
+		if (v[i] >= 'A' && v[i] <= 'Z') {
+			count++;
+		}
+		return countUpper(v, i + 1);
+	}
+}
+
+12번
+public class Test {
+	public static void main(String[] args) {
+		String s = "ABCDEDCBA";
+		System.out.println(palindrome(s, 0));
+	}
+
+	private static boolean palindrome(String s, int i) {
+		if (i == s.length() / 2)
+			return true;
+		if (s.charAt(i) == s.charAt(s.length() - 1 - i)) {
+			return palindrome(s, i + 1);
+		} else
+			return false;
+	}
+}
+
+13번
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int n[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		reverse(n, 0);
+		System.out.println(Arrays.toString(n));
+	}
+
+	private static void reverse(int[] n, int i) {
+		if (i == n.length / 2)
+			return;
+		int temp = n[i];
+		n[i] = n[n.length - 1 - i];
+		n[n.length - 1 - i] = temp;
+		reverse(n, i + 1);
+	}
+}

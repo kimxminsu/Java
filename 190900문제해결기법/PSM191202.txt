@@ -1,0 +1,35 @@
+그래스 실습 6번
+#실습 1
+	private static char[] isFriend(int[] groups, int i, int j) {
+		
+		return null;
+	}
+
+
+	private static int[] connected(LinkedList<Integer>[] adjList, int v) {
+		int groups[]=new int[V];
+		int label=0;
+		//그래프 내 모든 노드에 대해 미방문 시 아래 dfs 호출
+		for(int v=0;v<V;v++) {
+			if(groups[v]==0) dfs(adjList, V, i, groups, ++label);//0-1-2-3
+		}
+		
+		return groups;
+	}
+	
+	private static void dfs(LinkedList<Integer>[] adjList, int V, int v, int[] groups, int label) {
+		groups[v]=label;//visited[v]=true;
+		//현재 노드
+		for(int w:adjList[v]) {
+			if(groups[w]==0) dfs(adjList, V, W, groups, label);
+		}
+	}
+	
+#실습 2
+그냥 위에 코드에 해보면 됨
+#실습 3
+-모든 노드의 전체 엣지 개수만큼 반복 O(v+E) dfs 함수 시간복잡도
+촘촘하면O(V^2)까지 엄청나게 늘어남 ㅠㅠ
+
+다음시간 재귀15번-물웅덩이
+dfs()

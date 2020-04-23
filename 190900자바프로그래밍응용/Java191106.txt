@@ -1,0 +1,160 @@
+#1
+import java.awt.FlowLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+
+public class Test extends JFrame{
+	public Test() {
+		setSize(400,300);//사이즈
+		setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));	//x눌렀을때 액션
+		setLocationRelativeTo(null);//윈도우 화면의 위치를 모니터 어디쪽에 위치할건지 null=중앙
+		setLayout(new FlowLayout());
+		JLabel jLabel=new JLabel("안녕"); add(jLabel);//JLabel 스페이스 한다음에 컨+스하면 jLabel 변수명 추천해줌 그거쓰자
+		JButton jButton=new JButton("OK"); add(jButton);
+		JCheckBox jCheckBox1=new JCheckBox("영어"); add(jCheckBox1);
+		JCheckBox jCheckBox2=new JCheckBox("중국어"); add(jCheckBox2);
+		jCheckBox1.setSelected(true); //프로그램 자체에서 체크를 하게했음
+		System.out.println(jCheckBox1.isSelected());//체크됐는지 불리언값으로 알수있음
+		System.out.println(jCheckBox2.isSelected());//체크됐는지 불리언값으로 알수있음
+		
+		JRadioButton jRadioButton1=new JRadioButton("남자"); add(jRadioButton1); //지금은 체크박스랑 똑같지만 원래는 그룹으로 묶어서 둘중 하나만 체크되게 하는 용도임
+		JRadioButton jRadioButton2=new JRadioButton("여자"); add(jRadioButton2);
+		buttonGroup.add(jRadioButton1);//그룹으로 묶음
+		buttonGroup.add(jRadioButton2);
+		
+		
+	}
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.setVisible(true);
+	}
+}
+
+#2
+import java.awt.FlowLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Test extends JFrame{
+	public Test() {
+		setSize(400,300);//사이즈
+		setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));	//x눌렀을때 액션
+		setLocationRelativeTo(null);//윈도우 화면의 위치를 모니터 어디쪽에 위치할건지 null=중앙
+		setLayout(new FlowLayout());
+
+		JTextField jTextField=new JTextField("여기에 이름을 입력하세요"); add(jTextField); //한줄짜리 텍스트 입력가능
+		System.out.println(jTextField.getText()); //읽어올때는 getText 시험나올거같아!!
+		//setText하면 값이 바뀐대 jTextArea도 getText,setText 가능
+		JTextArea jTextArea=new JTextArea(10,20);//여러줄입력간ㅇ
+//		add(jTextArea); //문제발생-스크롤바가 자동으로 안생겨 ㅠㅠ
+		add(new JScrollPane(jTextArea));//-container-jScrollPane에다가 텍스트 넣고 스크롤을 애드하면됨
+		//append("xx")//jTextArea에서 사용함
+		
+		
+		
+		
+		
+	}
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.setVisible(true);
+	}
+}
+
+
+#3
+import java.awt.FlowLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Test extends JFrame{
+	public Test() {
+		setSize(400,300);//사이즈
+		setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));	//x눌렀을때 액션
+		setLocationRelativeTo(null);//윈도우 화면의 위치를 모니터 어디쪽에 위치할건지 null=중앙
+		setLayout(new FlowLayout());
+
+//		JComboBox(테두리,굵기,클릭했을때 드랍다운 리스트 표시되는거 즉, 외양) JComboBoxModel(데이터관리)
+		String items[]= {"한국","미국","일본"};
+//		DefaultComboBoxModel<String> model=new DefaultComboBoxModel<String>(items); //외우진 않아도되는데 보고는 아 이게 콤보박스모델인걸 알수는있어야함
+//		JComboBox<String> jComboBox=new JComboBox<String>(model); 
+		JComboBox<String> jComboBox=new JComboBox<String>(items); //위에 두줄이랑 똑같이 동작!
+		add(jComboBox);
+		jComboBox.setSelectedIndex(2); //이게 이미 선택된채로 시작
+		//getSelectedIndex 해당되는게 리턴됨
+		
+		
+		
+	}
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.setVisible(true);
+	}
+}
+
+#4
+import java.awt.FlowLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Test extends JFrame{
+	public Test() {
+		setSize(400,300);//사이즈
+		setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));	//x눌렀을때 액션
+		setLocationRelativeTo(null);//윈도우 화면의 위치를 모니터 어디쪽에 위치할건지 null=중앙
+		setLayout(new FlowLayout());
+
+		JTable jTable=new //컨스-Object[][] rowData, Object[] ColunNAmes
+//JTable 하다가 말았음		
+
+
+		String items[]= {"한국","미국","일본","한국","미국","일본","한국","미국","일본","한국","미국","일본","한국","미국","일본","한국","미국","일본"};
+		JList<String> jList=new JList<String>(items);
+//		add(jList);//길어지면 스크롤바가 필요한데 자동으로안생김
+		add(new JScrollPane(jList));
+		
+		
+	}
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.setVisible(true);
+	}
+}

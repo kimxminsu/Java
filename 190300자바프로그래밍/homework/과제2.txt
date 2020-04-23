@@ -1,0 +1,188 @@
+15번
+	public class ex04 {
+	   public static void main(String[] args) {
+		String name = "이영희";
+		char gender = '여';
+		double gpa = 4.37;
+		int totalCredits = 45;
+		
+		System.out.printf("이름= %s \t" ,name);
+		System.out.printf("성별= %c\t" ,gender );
+		System.out.printf("평점= %.2f\t" ,gpa);
+		System.out.printf("학점= %d\t" ,totalCredits);	
+		System.out.println();
+	   }
+	}
+		
+16번
+	public class ex04 {
+	   public static void main(String[] args) {
+		System.out.printf("이름= %s \t" ,name);
+		System.out.printf("성별= %c\t" ,gender );
+		System.out.printf("평점= %.1f\t\t" ,gpa);
+		System.out.printf("학점= %d\t" ,totalCredits);
+		System.out.println();
+	   }
+	}
+19번 
+	public class ex04 {
+	   public static void main(String[] args) {
+	 	 int n3 = 987654321;
+	 	 int v2, v3;
+	 	 
+	 	 v2 = (n3 / 1000);
+	 	 v3 = v2 % 10;
+	 	 
+	 	 System.out.println(v3);
+	   }
+	}	
+22번
+	public class ex04 {
+	   public static void main(String[] args) {
+	 	 int size[] = {0,99};
+	 	 
+	 	 System.out.println("size: "+size[1]);
+	   }
+	}
+	 	 
+26번
+	public class ex04 {
+	   public static void main(String[] args) {
+	 	 double height[] = {175.3, 180.5, 161.2, 197.1, 190.8};
+	 	 
+	 	 System.out.println("첫번째 신장: " +height[0]);
+	 	 System.out.println("마지막 신장: " +height[4]);
+	   }
+	}
+	 	 
+29번
+	public class ex04 {
+	   public static void main(String[] args) {
+	 	 int v[][] = {  {50,60,70,80,90}, {51,61,71,81,91}, {52,62,72,82,92} };
+	 	 
+	 	 double korAvg = (v[0][0] + v[0][1] + v[0][2])/3.0;
+	 	 System.out.println("국어평균: " +korAvg);
+	 	 
+	 	 double grade1Avg = (v[0][0]+v[1][0]+v[2][0]+v[3][0]+v[4][0])/5.0;
+	 	 double grade2Avg = (v[0][1]+v[1][1]+v[2][1]+v[3][1]+v[4][1])/5.0;
+	 	 double grade3Avg = (v[0][2]+v[1][2]+v[2][2]+v[3][2]+v[4][2])/5.0;
+	 	 
+	 	 System.out.println("1학년 평균: " +grade1_avg);
+	 	 System.out.println("2학년 평균: " +grade1_avg);
+	 	 System.out.println("3학년 평균: " +grade1_avg);
+	 	 
+	 	 double gradeAvg = (grade1Avg + grade2Avg + grade3Avg);
+	 	 System.out.println("전체 평균: " + gradeAvg);
+	   }
+	}
+	 	 
+33번
+	public class ex04 {
+	   public static void main(String[] args) {
+	 	 int score4[]={76,89,65,90,100};
+	 	 int i=0;
+	 	 int max = score4[0]; 
+	 			  
+	 	 while(i<score4.length){
+	 	  if(score4[i] > max){
+	 		 max = score4[i]; 
+	 	   } i++;
+	 	  } System.out.println(max); 
+	   }
+	}
+
+39번
+	public class ex02 {
+	 public static void main(String[] args) {
+		int n = -34;
+		int v = abs(n);
+
+		System.out.println(v);
+	   }
+	}
+42번
+	public class ex03 {
+	 public static void main(String[] args) { 
+		int n[]= {-76,100,-98,-76,46}; 
+		int v = max(n); 
+		System.out.println(v); 
+	}
+	private static int max(int[] n) {
+		
+		int score4[]={-76, 100, -98, -76, 46};
+	 	int i=0;
+	 	 
+	 	int max = score4[0]; 
+	 			  
+	 	while(i<score4.length){
+	 	  if(score4[i] > max){
+	 		 max = score4[i]; 
+	 	  } i++;
+	 	} System.out.println(max); 
+
+		return max;
+		}
+	}
+
+44번
+	public class ex04 {
+	   public static void main(String[] args) {
+		int n[] = {76, 100, 98, 76 , 46};
+		int m[] = {67, 79, 46, 79, 99};
+		int v[] = add(n,m);
+		
+		for(int i=0; i<v.length; i++) {
+			System.out.println(v[i]);
+		}
+	}
+
+	private static int[] add(int[] n, int[] m) {
+		int v [] = null;
+		int i=0;
+		
+		for(i=0; i<n.length; i++) {
+		v[i] = n[i]+m[i]; 
+		}return v ;
+	
+	  }
+	}
+
+	private static int abs(int n) {
+		int v = 0;
+		
+		if(n<0) v = (n*-1);
+		return v; 
+	 }
+	}
+46번
+	public class ex05 {
+	  public static void main (String[] agrs) {
+		int n[]= {-76,100,-98,-76,46};
+		int v[]= negativeNumbers(n);
+		
+		for(int i=0; i<v.length; i++) {
+			System.out.println(v[i]+ " ");
+		}
+		
+	}
+
+	private static int[] negativeNumbers(int[] n) {
+		for(int i=0; i<n.length; i++) {
+		 if(n[i] < 0)  System.out.println(n[i]); 
+		}
+		return null;
+	 }
+	}
+
+52번
+import javax.swing.JOptionPane;
+
+public class Test52 {
+	public static void main(String[]args) {
+		String v=JOptionPane.showInputDialog("정수를 입력하세요.");
+		int jungsu=Integer.parseInt(v);
+		if(jungsu%2==1) v="홀수";
+		else v="짝수";
+		JOptionPane.showMessageDialog(null,v);
+	}
+}

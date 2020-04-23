@@ -1,0 +1,27 @@
+#1-클래스객체(5)-p104 두번째 실습
+public class User {
+	String email;
+	String name;
+	public User(String email, String name) {
+		this.email=email;
+		this.name=name;
+	}
+	
+	@Override
+	public String toString() {
+		return name+","+email;
+	}
+}
+#2-p104 첫번째 실습
+import java.util.HashMap;
+
+public class Test {
+	public static void main(String[] args) {
+		HashMap<String,String> rank=new HashMap<>();
+		rank.put("한국","서울");
+		rank.put("중국","베이징");
+		rank.put("일본","도쿄");
+		System.out.println(rank);
+	}
+
+}

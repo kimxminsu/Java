@@ -1,0 +1,419 @@
+2번
+import javax.swing.JFrame;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Dimension;
+
+public class Test extends JFrame{
+	private JTextField textField_num1;
+	private JTextField textField_num2;
+	public Test() {
+		setSize(new Dimension(400, 250));
+		setVisible(true);
+		setTitle("Adder");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		textField_num1 = new JTextField();
+		textField_num1.setHorizontalAlignment(SwingConstants.RIGHT);
+		textField_num1.setColumns(10);
+		
+		textField_num2 = new JTextField();
+		textField_num2.setHorizontalAlignment(SwingConstants.RIGHT);
+		textField_num2.setColumns(10);
+		
+		JLabel Label_num1 = new JLabel("First number");
+		
+		JLabel Label_num2 = new JLabel("Second number");
+		
+		JButton button_add = new JButton("add");
+		button_add.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int n1=Integer.parseInt(textField_num1.getText());
+	            int n2=Integer.parseInt(textField_num2.getText());
+	            
+	            JOptionPane.showMessageDialog(Test.this,n1+n2);
+			}
+		});
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(button_add))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(73)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(Label_num1)
+								.addComponent(Label_num2))
+							.addPreferredGap(ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField_num2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_num1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addGap(110))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(73)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField_num1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Label_num1))
+					.addGap(18)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField_num2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Label_num2))
+					.addGap(18)
+					.addComponent(button_add)
+					.addContainerGap(87, Short.MAX_VALUE))
+		);
+		getContentPane().setLayout(groupLayout);
+	}
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.setVisible(true);
+	}
+}
+
+3번
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import javax.swing.JSlider;
+
+public class Test extends JFrame{
+	private JTable table;
+	public Test() {
+		getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		getContentPane().add(panel, BorderLayout.NORTH);
+		
+		JButton btnLoad = new JButton("load");
+		panel.add(btnLoad);
+		
+		JPanel panel_1 = new JPanel();
+		getContentPane().add(panel_1, BorderLayout.SOUTH);
+		
+		JButton btnPrev = new JButton("prev");
+		panel_1.add(btnPrev);
+		
+		JButton btnNext = new JButton("next");
+		panel_1.add(btnNext);
+		
+		JSlider slider = new JSlider();
+		panel_1.add(slider);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		getContentPane().add(scrollPane, BorderLayout.CENTER);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"name", "city"
+			}
+		));
+		scrollPane.setViewportView(table);
+	}
+
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.setVisible(true);
+	}
+}
+
+4번
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+
+public class Test extends JFrame{
+	public Test() {
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu("File");
+		menuBar.add(mnFile);
+		
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+	}
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.setVisible(true);
+	}
+}
+
+5번
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
+import javax.swing.JTabbedPane;
+import javax.swing.JPanel;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+
+
+public class Test extends JFrame{
+	private JTextField textField;
+	private JTable table;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	public Test() {
+		getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		getContentPane().add(tabbedPane, BorderLayout.CENTER);
+		
+		JPanel panel_Search = new JPanel();
+		tabbedPane.addTab("검색", null, panel_Search, null);
+		panel_Search.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		panel_Search.add(panel, BorderLayout.NORTH);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\uB3C4\uC11C\uBA85", "\uC800\uC790\uBA85", "\uCD9C\uD310\uB144\uB3C4", "\uCD9C\uD310\uC0AC"}));
+		panel.add(comboBox);
+		
+		textField = new JTextField();
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("\uAC80\uC0C9");
+		panel.add(btnNewButton);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel_Search.add(scrollPane, BorderLayout.CENTER);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"도서명", "저자명", "출판년도", "출판사"
+			}
+		));
+		scrollPane.setViewportView(table);
+		
+		JPanel panel_Borrow = new JPanel();
+		tabbedPane.addTab("대출", null, panel_Borrow, null);
+		
+		JLabel label = new JLabel("\uB3C4\uC11C \uB4F1\uB85D\uBC88\uD638");
+		
+		JLabel lblNewLabel = new JLabel("\uB300\uCD9C\uC790 \uC544\uC774\uB514");
+		
+		textField_1 = new JTextField();
+		textField_1.setText("");
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("\uB300\uCD9C");
+		GroupLayout gl_panel_Borrow = new GroupLayout(panel_Borrow);
+		gl_panel_Borrow.setHorizontalGroup(
+			gl_panel_Borrow.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_Borrow.createSequentialGroup()
+					.addGap(69)
+					.addGroup(gl_panel_Borrow.createParallelGroup(Alignment.TRAILING)
+						.addComponent(btnNewButton_1)
+						.addGroup(gl_panel_Borrow.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_panel_Borrow.createSequentialGroup()
+								.addComponent(lblNewLabel)
+								.addGap(18)
+								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_panel_Borrow.createSequentialGroup()
+								.addComponent(label)
+								.addGap(18)
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(150, Short.MAX_VALUE))
+		);
+		gl_panel_Borrow.setVerticalGroup(
+			gl_panel_Borrow.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_Borrow.createSequentialGroup()
+					.addGap(74)
+					.addGroup(gl_panel_Borrow.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_panel_Borrow.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel)
+						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(btnNewButton_1)
+					.addContainerGap(57, Short.MAX_VALUE))
+		);
+		panel_Borrow.setLayout(gl_panel_Borrow);
+		
+		JPanel panel_Return = new JPanel();
+		tabbedPane.addTab("반납", null, panel_Return, null);
+	}
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.setVisible(true);
+	}
+}
+
+6번
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import java.awt.BorderLayout;
+
+public class BookJFrame extends JFrame {
+	public BookJFrame() {
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		 getContentPane().add(tabbedPane, BorderLayout.CENTER);
+		 SearchJPanel searchJPanel=new SearchJPanel();
+		tabbedPane.addTab("검색", null, searchJPanel, null);
+		 BorrowJPanel borrowJPanel=new BorrowJPanel();
+		tabbedPane.addTab("대출", null, borrowJPanel, null);
+		 ReturnJPanel returnJPanel=new ReturnJPanel();
+		tabbedPane.addTab("반납", null, returnJPanel, null); 
+	}
+
+	public static void main(String args[]) {
+		new BookJFrame().setVisible(true);
+	}
+}
+
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.FlowLayout;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class SearchJPanel extends JPanel {
+	private JTextField textField;
+	private JTable table;
+
+	public SearchJPanel() {
+		setLayout(new BorderLayout(0, 0));
+
+		JPanel panel = new JPanel();
+		add(panel, BorderLayout.NORTH);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "\uB3C4\uC11C\uBA85", "\uC800\uC790\uBA85",
+				"\uCD9C\uD310\uB144\uB3C4", "\uCD9C\uD310\uC0AC" }));
+		panel.add(comboBox);
+
+		textField = new JTextField();
+		panel.add(textField);
+		textField.setColumns(10);
+
+		JButton btnNewButton = new JButton("\uAC80\uC0C9");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		panel.add(btnNewButton);
+
+		JScrollPane scrollPane = new JScrollPane();
+		add(scrollPane, BorderLayout.CENTER);
+
+		table = new JTable();
+		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "\uB3C4\uC11C\uBA85",
+				"\uC800\uC790\uBA85", "\uCD9C\uD310\uB144\uB3C4", "\uCD9C\uD310\uC0AC" }));
+		scrollPane.setViewportView(table);
+	}
+}
+
+import javax.swing.JPanel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class BorrowJPanel extends JPanel {
+	private JTextField textField;
+	private JTextField textField_1;
+	public BorrowJPanel() {
+		
+		JLabel lblNewLabel = new JLabel("\uB3C4\uC11C \uB4F1\uB85D\uBC88\uD638");
+		
+		JLabel lblNewLabel_1 = new JLabel("\uB300\uCD9C\uC790 \uC544\uC774\uB514");
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		
+		JButton button = new JButton("\uB300\uCD9C");
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(79)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(button)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblNewLabel_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(lblNewLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addGap(31)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(148, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(107)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(35)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_1)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(32)
+					.addComponent(button)
+					.addContainerGap(61, Short.MAX_VALUE))
+		);
+		setLayout(groupLayout);
+	}
+}
+
+import javax.swing.JPanel;
+
+public class ReturnJPanel extends JPanel{
+	public ReturnJPanel() {
+	}
+}

@@ -1,0 +1,16 @@
+  private static int peek(int[] heap) {
+      return heap[0];
+   }
+   private static int remove(int[] heap, int last) { //이론자료 힙에 remove
+//      if(last<0) throw new RuntimeException("heap empty");
+      int data=heap[0]; // root 노드 자료 추출
+      heap[0]=heap[last--]; // 마지막 노드 root로 이동 & 크기 1 감소
+      for (int parent=0, child=2*parent+1; child<=last; parent=child, child=2*parent+1) { // root를 heapify-down
+      if(child<last && heap[child]<heap[child+1]) child++;
+      if(heap[child]<=heap[parent]) break;
+      int temp=heap[child];
+      heap[child]=heap[parent];
+      heap[parent]=temp;
+      }
+      return data;
+   }

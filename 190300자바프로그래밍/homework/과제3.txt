@@ -1,0 +1,225 @@
+클래스작성실습 A
+class Player1 {
+	String id;
+	String name;
+	char gender;
+	int age;
+	
+	public String toString() {
+	 return name+","+gender+","+age;
+	}
+}
+public class A {
+	public static void main(String[] args) {
+		Player1 p001 = new Player1();	
+		
+		p001.name = "김영희";
+		p001.gender = '여';
+		p001.age = 20;
+		
+		Player1 p002 = new Player1();	
+		p002.name = "박철수";
+		p002.gender = '남';
+		p002.age = 20;
+		
+		Player1 p003 = new Player1();	
+		p003.name = "이정희";
+		p003.gender = '여';
+		p003.age = 21;
+		
+		System.out.println(p001.toString());
+		System.out.println(p002.toString());
+		System.out.println(p003.toString());
+	}
+}
+클래스작성실습 B
+class Country{
+	String name;
+	String country_code;
+	int population;
+	int area;
+	
+	public String toString() {
+	 return "국가명: " + name  +" "+ "국가코드: " + country_code +" " + "인구 수: " + population +" "+ "면적: " + area;   
+	}
+}
+
+
+public class B {
+	public static void main(String[] args) {
+	
+	Country c1 = new Country();
+	c1.name = "대한민국";
+	c1.country_code = "KR";
+	c1.population = 51446201;
+	c1.area = 100363;
+
+	Country c2 = new Country();
+	c2.name = "스위스";
+	c2.country_code = "CH";
+	c2.population = 8508898;
+	c2.area = 41285;
+	
+	Country c3 = new Country();
+	c3.name = "미국";
+	c3.country_code = "US";
+	c3.population = 327167434;
+	c3.area = 3796742;
+	
+	System.out.println(c1.toString());
+	System.out.println(c2.toString());
+	System.out.println(c3.toString());
+	}
+}
+클래스작성실습 C
+class Member {
+	String id;
+	int year;
+	int month;
+	int day;
+	
+	public String toString() {
+		return "회원 id:" + id +" "+ "가입일:" +year+"년"+month+"월"+day+"일";
+	}
+}
+
+public class C {
+	public static void main(String[] args) {
+		
+		Member m1 = new Member();
+		m1.id = "M001";
+		m1.year = 2019;
+		m1.month = 3;
+		m1.day = 5;
+	
+		Member m2 = new Member();
+		m2.id = "M002";
+		m2.year = 2017;
+		m2.month = 12;
+		m2.day = 31;
+		
+		Member m3 = new Member();
+		m3.id = "M003";
+		m3.year = 2000;
+		m3.month = 1;
+		m3.day = 1;
+	
+		System.out.println(m1.toString());
+		System.out.println(m2.toString());
+		System.out.println(m3.toString());
+	}
+}
+클래스작성실습 D
+class DateYMD{
+	String id;
+	int year;
+	int month;
+	int day;
+	
+	public DateYMD() {
+		
+		
+	}
+	
+	public DateYMD(String id, int year, int month, int day) {
+		
+		this.id = id;
+		this.year = year;
+		this.month = month;
+		this.day = day;
+		
+	}
+	
+	public String toString() {
+		return year +"년"+month+"월"+day+"일";
+	}
+}
+
+
+
+public class D {
+	public static void main(String[] args) {
+		DateYMD d1 = new DateYMD();
+		d1.year = 2019;
+		d1.month = 3;
+		d1.day = 5;
+		
+		DateYMD d2 = new DateYMD("M002",2017,12,31);
+		d2.year = 2017;
+		d2.month = 12;
+		d2.day = 31;
+		
+		DateYMD d3 = new DateYMD("M003",2000,1,1);
+		d3.year = 2000;
+		d3.month = 1;
+		d3.day = 1;
+		
+		System.out.println(d1.toString());
+		System.out.println(d2.toString());
+		System.out.println(d3.toString());
+		
+	}
+}
+클래스작성실습 F
+class Applicant{
+	int seqNo;
+	int evaluationResult;
+	char grade;
+	
+	public String toString() {
+		return "new Applicant("+seqNo+","+evaluationResult+","+grade+")"; 
+	}
+}
+
+public class F {
+	public static void main(String[] args) {
+		Applicant a1 = new Applicant();
+		a1.seqNo=1;
+		a1.evaluationResult = 98;
+		a1.grade = 'c';
+
+		Applicant a2 = new Applicant();
+		a2.seqNo=2;
+		a2.evaluationResult = 75;
+		a2.grade = 'a';
+		
+		Applicant a3 = new Applicant();
+		a3.seqNo=3;
+		a3.evaluationResult = 85;
+		a3.grade = 'a';
+		
+		System.out.println(a1.toString());
+		System.out.println(a2.toString());
+		System.out.println(a3.toString());
+	}
+}
+클래스작성실습 G
+class Player{
+	String id;
+	int record1, record2, record3;
+	
+	public Player(String id, int record1, int record2, int record3) {
+		this.id = id;
+		this.record1 = record1;
+		this.record2 = record2;
+		this.record3 = record3;
+	}
+	
+	public int getPlayerBestRecord(int p) {
+		if(record1 > record2 && record1 > record3) p=record1;
+		else if(record2> record1 && record2>record3) p=record2;
+		else p=record3;
+		
+		return p;
+	}
+}
+
+public class G {
+	public static void main(String[] args) {
+	
+	int p = 0;
+	
+	Player p1 = new Player("p001", 190, 195, 193); 
+	System.out.println(p1.getPlayerBestRecord(p));
+	}
+}

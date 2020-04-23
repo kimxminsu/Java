@@ -1,0 +1,107 @@
+1.
+int year = 2019;
+
+2.
+double sdibhg = 32.5;
+
+3.
+char c = '봄';
+
+4.
+String s = "대한민국";
+
+5.
+boolean flag = true;
+
+6.
+int v[] = {99};
+
+7.
+int v[] = new int[1];
+v[0] = 99;
+
+8.
+int v[];
+v = new int [1];
+v[0] = 99;
+
+9.
+System.out.println(s.charAt(s.length()-1));
+
+10.
+private  static int sum(int n[]) {
+	int total = 0;  
+	for(int i=0; i<n.length; i++) {
+		total += n[i];
+	}return total;
+}
+
+11.
+Student s = new Student();
+
+12.
+public static int add(x, y) {
+	return x+y;
+}
+
+13.
+public class Calc {
+ public static int[] qr(String s1, String s2) {
+	int n1 = Integer.parseInt(s1);
+	int n2 = Integer.parseInt(s2);
+	int v[] = {n1/n2, n1%n2};
+	return v;
+ }
+}
+
+14.
+public class Member {
+ String id; // 필드
+ public Member (String id) { // 생성자
+ 	this.id = id;
+ }
+ @Override
+ public String toString() {
+	return id;
+ }
+}
+
+15.
+public class TemporaryMember extends Member {
+ int period; // 필드
+ public class TemporaryMember(String id, int period) { // 생성자
+	Super(id); //this.id = id;
+	this.period = period;
+ }
+ @Override
+ public String toString() {
+	return id+“,”+period; //return super.toString();
+ }
+}
+
+16.
+Movie m = new Movie();
+m.title = “지구”;
+m.date = new Date();
+m.date.year = 2019;
+
+//m.date.year = 2019; (x)
+/*Date d = new Date();
+d.year = 2019; (x)*/
+
+17.
+Book b = new Book();
+b.tilte = “자바기초”;
+Book v[] = new Book[1]; //Book v[] = {b};
+v[0] = b;
+
+18.
+File dir = new File(“C:/Temp”);
+File files[] = dir.listFiles();
+ for (int i = 0; i < files.length; i++) {
+	File f = files[i];
+	String n = f.getName();
+	if(f.length() >= 1000 && n.endsWith(“exe”)) {
+		System.out.println(n.substring(0,3));
+	}
+ }

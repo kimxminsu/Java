@@ -1,0 +1,22 @@
+#(5-2) 4번-A
+import java.util.LinkedList;
+
+public class Test {
+	public static void main(String[] args) {
+		System.out.println(solveJosephusProblem(7, 3));
+		
+	}
+	private static int solveJosephusProblem(int n,int k) {
+		LinkedList<Integer> queue=new LinkedList<Integer>();
+		for(int i=1;i<=n;i++) queue.addLast(i);
+		
+		while(queue.size()>1) { //큐크기>1
+			for(int i=0;i<k-1;i++) { //k-1번 반복
+				int v=queue.removeFirst(); //큐에서 자료삭제하면서 변수 v에 저장
+				queue.addLast(v); //삭제한 값 뒤로 추가
+			}
+			queue.removeFirst(); //맨앞으로 이동된 삭제해야할 값(k번째)삭제
+		}
+		return queue.getFirst(); //마지막에 남은 유일한 하나의 값 불러오기(getFirst/getLast 둘다 상관X)
+	}
+}

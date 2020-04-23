@@ -1,0 +1,19 @@
+public class Test {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int age = 23;//1
+		double height = 175.6;//2
+		char surname = '김';//3
+		String university = "경성대학교";//4
+		boolean flag = false;//5
+		int score[] = {87};//6
+		int score[] = new int[1];//7
+		score[0]=87;
+		int score[];//8
+		score=new int[1]; //score[0]이렇게 하면안됨
+		score[0]=87;
+		
+		int sequence[];
+		for (int i=0;)
+	}
+}

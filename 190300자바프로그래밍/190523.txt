@@ -1,0 +1,47 @@
+#1_016_파일입출력 5번문제 응용?
+import java.io.FileWriter;
+
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		try {
+			String v=JOptionPane.showInputDialog("메모 입력:");
+			
+			if (v!=null) {
+				FileWriter w=new FileWriter("C:/Temp/memo.txt");
+				w.write(v+"n");
+				w.close();
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+#2 8번
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		
+		try {
+			FileReader fr=new FileReader("C:/Temp/info.txt");
+			Scanner iF=new Scanner(fr);
+			while(iF.hasNext()) {
+				String s=iF.nextLine();
+				System.out.println(s);
+			}
+			fr.close();
+			iF.close();
+		} catch (Exception e) {
+			
+		}
+		
+	}
+}

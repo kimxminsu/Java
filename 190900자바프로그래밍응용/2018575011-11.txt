@@ -1,0 +1,176 @@
+08-실습(이진탐색)
+1번
+실습 #1
+import java.util.Random;
+
+public class Test {
+	public static void main(String[] args) {
+		int v[] = new int[1000000];
+		Random random = new Random();
+		for (int i = 0; i < v.length; i++)
+			v[i] = random.nextInt(1000000);
+		int key = 1234;
+		System.out.println(search(v, key));
+	}
+
+	private static int search(int[] v, int key) {
+		for (int i = 0; i < v.length; i++) {
+			if (v[i] == key)
+				return i;
+		}
+		return -1;
+	}
+}
+
+실습 #2
+import java.util.Random;
+
+public class Test {
+	public static void main(String[] args) {
+		int v[] = new int[1000000];
+		Random random = new Random();
+		for (int i = 0; i < v.length; i++)
+			v[i] = random.nextInt(1000000);
+		int key = 1234;
+		System.out.println(search(v, key));
+	}
+
+	private static int search(int[] v, int key) {
+		for (int i = 0; i < v.length; i++) {
+			if (v[i] == key)
+				return i;
+		}
+		return -1;
+	}
+}
+
+3번
+실습 #1
+public class Test {
+	public static void main(String[] args) {
+		int v[] = { 2, 3, 6, 8, 9 };
+		Arrays.sort(v); // 배열 정렬
+		int key = 8;
+		int index = binarySearch(v, key); // 정렬된 배열 내 자료 위치 이진 탐색
+		if (index < 0)
+			System.out.println("배열 내 자료 없음");
+		else
+			System.out.println("자료 발견 위치(배열 내 index): " + index);
+	}
+
+	private static int binarySearch(int[] v, int key) {
+		int left = 0, right = v.length - 1;
+		while (left <= right) {
+			int m = (left + right) / 2;
+			if (key == v[m])
+				return m;
+			if (key < v[m])
+				right = m - 1;
+			else
+				left = m + 1;
+		}
+		return -1;
+	}
+}
+
+실습 #2
+private static int binarySearch(int key) {
+	return binarySearch(key);
+}
+	private static int binarySearch(int[] v, int key) {
+	int left = 0, right = v.length - 1;
+	int m = (left + right) / 2;
+	if (key == v[m])
+		return m;
+	if (key < v[m]) {
+		right = m - 1;
+		binarySearch(v, key);
+	} else {
+		left = m + 1;
+		binarySearch(v, key);
+	}
+	return -1;
+}
+
+09-실습(이진탐색트리)
+1번
+실습 #1
+public BinaryTree search(int key) {
+	return searchRecur(root, key);
+}
+private BinaryTree searchRecur(BinaryTree node, int key) {
+	if (node == null || node.key == key)
+		return node;
+	if (node.key > key)
+		return searchRecur(node.left, key);
+	return searchRecur(node.right, key);
+}
+
+실습 #2
+	public void add(int key) {
+		if (search(key) != null)
+			return;
+		BinaryTree Node = new BinaryTree(key);
+		if (root == null) {
+			root = Node;
+		} else {
+			BinaryTree focusNode = root;
+			BinaryTree parent;
+			while (true) {
+				parent = focusNode;
+				if (key < parent.key) {
+					focusNode = parent.left;
+					if (focusNode == null) {
+						parent.left = Node;
+						return;
+					}
+				} else {
+					focusNode = parent.right;
+					if (focusNode == null) {
+						parent.right = Node;
+						return;
+					}
+				}
+			}
+		}
+	}
+
+실습 #3
+
+10-실습(이진힙)
+5번
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		int heap[] = { 3, 1, 2, 8, 7, 9, 4, 6, 5, 4 };
+		int last = heap.length - 1;
+		for (int i = heap.length / 2; i >= 0; i--)
+			heapifyDown(heap, last, i); // max-heap 빌드 O(n)
+		System.out.println(Arrays.toString(heap));
+		System.out.println("최대값=" + peek(heap)); // 최대값 출력
+		for (int i = 0; i < 5; i++) { // 상위 5개 자료 추출
+			System.out.print(remove(heap, last--) + " "); // 각 추출 후 힙 크기 1 감소
+		}
+	}
+
+	private static String remove(int[] heap, int i) {
+		return null;
+	}
+
+	private static String peek(int[] heap) {
+		return null;
+	}
+
+	private static void heapifyDown(int[] heap, int last, int p) {
+		for (int c = 2 * p + 1; c <= last; p = c, c = 2 * p + 1) {
+			if (c < last && heap[c] < heap[c + 1])
+				c++; // 두 child 중 큰 값을 갖는 child 선택
+			if (heap[p] >= heap[c])
+				break; // 이미 heap 조건 만족 시 반복 종료
+			int temp = heap[c];
+			heap[c] = heap[p];
+			heap[p] = temp; // 힙 조건 위배 시 swap
+		}
+	}
+}

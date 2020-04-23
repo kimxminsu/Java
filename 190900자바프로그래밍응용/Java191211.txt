@@ -1,0 +1,66 @@
+#Adder
+http://localhost:8080/JPcourse/Adder.html
+
+Adder.html로 저장
+
+<html>
+<head>
+<title>Adder</title>
+</head>
+<body>
+<h2>Adder</h2>
+<form action="Adder" method="GET">
+Number 1:<input type="text" name="n1"><br> 
+Number 2:<input type="text" name="n2"><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+#이클립스로 뭐시기
+Servlet api.jar 깔려있는 자바프로젝트 폴더에
+Adder 클래스 만들기
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Adder extends HttpServlet {
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException { 
+		String n1=req.getParameter("n1");
+		String n2=req.getParameter("n2");
+		int total=Integer.parseInt(n1)+Integer.parseInt(n2);
+		PrintWriter out=resp.getWriter();
+		out.println("Sum = "+total);
+	}
+}
+
+Web.xml 수정
+HEllo를 복붙한다음 Addder로 바꾸기 //Adder 태그 정보 추가
+
+자바파일을
+bin폴더에 있는 클래스 복사해서
+
+C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\JPcourse\WEB-INF\classes
+여기에 붙여넣기
+
+주소창에
+http://localhost:8080/JPcourse/Adder.html
+값을 n1=23, n2=15 해서 submit하면
+http://localhost:8080/JPcourse/Adder?n1=23&n2=15
+주소창이 이렇게 바뀜
+여기서 23이랑 15는 내가 입력한 값이 저장됐다는 뜻이라는데(이건곽찬피셜)
+
+
+framework를 쓰면 복붙 이런거 안해도됨
+그런데 그거 쓰려면 설정 같은거나 더 배울게많아 ㅠㅠ
+
+
+
+관리도구/서비스/아파치 중지하고 시작

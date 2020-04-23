@@ -1,0 +1,142 @@
+p58
+
+public class Car implements Colorable{ //그냥두면 오류남 1번째거 클릭해서  밑에 override ㄱㄱ
+	int color;
+	@Override//부모가 가진 setcolor정의문이 없엇는데 내가 구현한다!
+	public void setColor(int Color) {
+		this.color=color;
+	}
+	
+}
+
+
+
+public class Test {
+	public static void main(String[] args) {
+		Car car=new Car();
+		car.setColor(Colarable.);
+	}
+}
+
+
+public interface Colorable {
+	static final int RED=1;
+	void setColor(int Color);
+}
+
+
+p63_익명내부클래스
+
+public class Animal {
+	public String speak() {
+		return "";
+	}
+}
+
+
+public class Dog extends Animal{
+	@Override //ctrl+space -speak()선택
+	public String speak() {
+		return "멍멍";
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Dog dog=new Dog();
+		System.out.println(dog.speak());
+	}
+}
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+#Dog클래스 안만들고
+
+public class Test {
+	public static void main(String[] args) {
+//		Dog dog=new Dog(); //==Animal dog=new Dog()???뭔소리야
+//		System.out.println(dog.speak()); //실제로는 dog객체
+		
+		Animal dog=new Animal() {
+			@Override //원래는 Dog클래스에 있던거를 여기에 씀
+			public String speak() {
+				return "멍멍";
+			}
+		};
+		System.out.println(dog.speak());
+	}
+}
+
+#cat 추가
+
+public class Test {
+	public static void main(String[] args) {
+//		Dog dog=new Dog(); //==Animal dog=new Dog()???뭔소리야 Animal이 더 커서 가능
+//		System.out.println(dog.speak()); //실제로는 dog객체
+		
+		Animal dog=new Animal() {
+			@Override //원래는 Dog클래스에 있던거를 여기에 씀
+			public String speak() {
+				return "멍멍";
+			}
+		}; //세미콜론 꼭 붙여야됨
+		
+		Animal cat=new Animal() {
+			@Override
+			public String speak() {
+				return "야옹";
+			}
+		};
+		System.out.println(dog.speak()+cat.speak());
+	}
+}
+
+
+
+
+p64
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
+public class MyActionListener implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) { //static 이 아니라서 myactionlister 객체로를 만들어서 버튼하고 연결 시켜줘야함
+		JOptionPane.showMessageDialog(null, "안녕하세요");
+	}
+	
+}
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		JFrame w=new JFrame();
+		JButton button=new JButton("Click Me");
+		
+//		MyActionListener actionListener=new MyActionListener();//여러번쓸떄
+//		button.addActionListener(actionListener);
+		
+//아까 Animal익명내부클래스 내용을 넣는거랑 같은 의미 //한번쓸때
+		ActionListener actionListener=new ActionListener() {//인터페이스라서 안에 뭐가있어가지고 new 뒤에거가 오류남//add 해줘야됨
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "안녕");
+			}
+			
+		};
+		
+		w.add(button);
+		w.setVisible(true);
+		
+	}
+}

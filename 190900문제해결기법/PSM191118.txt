@@ -1,0 +1,28 @@
+#8-1 순차탐색실습
+for(int i=0;i<v.length;i++) { //범위검사
+	if(v[i]==key) return i; //키값이랑 비교, 자료하나에 비교를 2번하니까 2n
+}
+return -1;
+
+#8-2 1-2
+public class Test {
+	public static void main(String[] args) {
+		int v[]= {1,2,3,4,5};
+		int key=7;
+		System.out.println(search(v,key));
+	}
+	
+	private static void search(int[] v,int key) {
+		int i=0;
+		int lastValue=v[v.length-1]; //마지막위치값 보관
+		v[v.length-1]=key; //마지막위치값 보초
+		while(v[i]!=key)i++; //범위검사안하고 비교만 함 다르면 증가 같으면 멈춤
+		v[v.length-1]=lastValue;//마지막 키값 바뀐채로 두면안되니까 다시 복원
+		if(i<v.length-1) return i; //멈췄을때 마지막인덱스보다 작으면 찾았오
+//		else { //어차피 다 i==v.length-1 라서 else굳이 안해도됨
+		if(key==lastValue) return v.length-1;
+		return -1; //여기도 else안해도됨
+	}
+}
+
+#

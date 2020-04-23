@@ -1,0 +1,93 @@
+#네트워크 1
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
+public class Client {
+
+	public static void main(String[] args) {
+		
+		try {
+			Socket socket=new Socket("localhost", 7777);
+	
+			InputStream    si=socket.getInputStream();  
+			OutputStream    so=socket.getOutputStream(); 
+			so.write("안녕하세요.".getBytes());     
+			so.flush();
+			byte    buf[]=new byte[1024];
+			int    len=si.read(buf);
+			String s = new String(buf, 0, len);
+			System.out.println("From 서버: "+s); 
+			socket.close();
+		}         
+		catch (Exception e) {
+			e.printStackTrace();
+		}  
+	}
+
+}
+ #3
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Server {
+
+	public static void main(String[] args) {
+		try { 
+			ServerSocket serverSocket=new ServerSocket(7777); 
+			Socket socket=serverSocket.accept();     
+			Scanner si=new Scanner(socket.getInputStream());
+			
+			//System.out.println("Connected from client "+socket); 
+			//InputStream si=socket.getInputStream();  
+			OutputStream so=socket.getOutputStream(); 
+			String s=si.nextLine();
+			//byte buf[]=new byte[1024];
+			//int len=si.read(buf); 
+			System.out.println("From Client:  "+s);
+			so.write((s+"n").getBytes());
+			so.flush();
+			si.close();
+			so.close();
+			socket.close();
+			serverSocket.close();
+			}         
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+}
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client {
+
+	public static void main(String[] args) {
+		
+		try {
+			Socket socket=new Socket("localhost", 7777);
+			Scanner si=new Scanner(socket.getInputStream());
+			
+			//InputStream    si=socket.getInputStream();  
+			OutputStream    so=socket.getOutputStream();
+			Scanner ki=new Scanner(System.in);
+			String msg=ki.nextLine()+"n";
+			so.write(msg.getBytes());     
+			so.flush();
+			//byte    buf[]=new byte[1024];
+			//int    len=si.read(buf);
+			//String s = new String(buf, 0, len);
+			System.out.println("From 서버: "+si.nextLine());
+			ki.close(); si.close(); so.close();socket.close();
+		}         
+		catch (Exception e) {
+			System.out.println(e.getMessage());;
+		}  
+	}
+
+}

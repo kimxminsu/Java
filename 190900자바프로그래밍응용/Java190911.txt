@@ -1,0 +1,193 @@
+#(1-2) #22,27
+public class Test {
+
+	public static void main(String[] args) {
+//		int v[]; //1
+//		v=new int[1];
+//		v[0]=99;
+//		int v[]= {99}; //2
+//		int v[]=new int[1];//3
+//		v[0]=99;
+		System.out.println(v[0]);
+	}
+
+}
+
+#(1-2) #23번
+
+public class Test {
+
+	public static void main(String[] args) {
+		int n[]= {33,33,44,55,66};
+		System.out.println(n.length); // 배열의 길이
+		System.out.println(n[0]); //첫번째
+		System.out.println(n[n.length-1]); //마지막
+	}
+
+}
+
+#(1-2) #24
+
+public class Test {
+
+	public static void main(String[] args) {
+		String name[]= {"홍길동","이영희","Jame Brown"};
+		int mathScore[]= {85,95,88};
+		double avg=(mathScore[0]+mathScore[1]+mathScore[2])/(double)3;
+		System.out.println(avg);
+	}
+}
+
+#(1-2) 25번
+
+public class Test {
+
+	public static void main(String[] args) {
+		int score[]= {84,91,100,94,73};
+		for(int i=0; i<score.length; i++) {
+			System.out.print(score[i]);
+			if(i<score.length-1) {
+				System.out.print(",");
+			}
+		}
+	}
+}
+
+#(1-2) 26번
+
+public class Test {
+
+	public static void main(String[] args) {
+		double height[]= {175.3,180.5,161.2,197.1,190.8};
+		System.out.println(height[0]);
+		System.out.println(height[height.length-1]);
+	}
+}
+---------------------------------------------------
+#(1-2) 27_내가한거
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		int v[]=new int[1];
+		v[0]=99;
+		System.out.println(v[0]);
+	}
+	
+}
+
+#(1-2) 29_내가한거
+
+public class Test {
+
+	public static void main(String[] args) {
+		int v[][]= {
+				{50,60,70,80,90},
+				{51,61,71,81,91},
+				{52,62,72,82,92}				
+				};
+		double korAvg=0, matAvg=0, engAvg=0;
+		double avg1=0, avg2=0, avg3=0, avg4=0, avg5=0;
+		double avg=0;
+		for (int i=0;i<v[0].length;i++) {
+			
+			korAvg+=v[0][i];
+			matAvg+=v[1][i];
+			engAvg+=v[2][i];
+			if(i<v.length) {
+			avg1+=v[i][0];
+			avg2+=v[i][1];
+			avg3+=v[i][2];
+			avg4+=v[i][3];
+			avg5+=v[i][4];
+			}
+//			for (int j=0;j<v.length;j++) {
+//			avg+=v[j][i];
+//			}
+			avg+=v[0][i];
+			avg+=v[1][i];
+			avg+=v[2][i];
+			
+		}
+		System.out.println("국어:"+korAvg/v[0].length);
+		System.out.println("수학:"+matAvg/v[0].length);
+		System.out.println("영어:"+engAvg/v[0].length);
+		System.out.println("1:"+avg1/v.length);
+		System.out.println("2:"+avg2/v.length);
+		System.out.println("3:"+avg3/v.length);
+		System.out.println("4:"+avg4/v.length);
+		System.out.println("5:"+avg5/v.length);
+		System.out.println("전체:"+avg/(v[0].length*v.length));
+	}
+	
+}
+
+#(1-2) 31
+
+public class Test {
+
+	public static void main(String[] args) {
+		int n=12301036;
+		boolean threeYN=false;
+		if (n%3==0) threeYN=true;
+		System.out.println("3의 배수:"+threeYN);
+	}
+	
+}
+
+#(1-2) 32
+
+public class Test {
+
+	public static void main(String[] args) {
+		int score[]= {76,89,65,90,100};
+		double avg=0;
+		for(int i=0;i<score.length;i++) {
+			avg+=score[i];
+		}
+		System.out.println(avg/score.length);
+		
+	}
+	
+}
+
+#(1-2)33
+
+public class Test {
+
+	public static void main(String[] args) {
+		int score[]= {76,89,65,90,100};
+		int i=0;
+		int max=0;
+		while(i<score.length) {
+			max=score[0];
+			if(score[i]>max) max=score[i];
+			i++;
+		}
+		System.out.println(max);
+	}
+	
+}
+
+#(1-2)34
+
+public class Test {
+
+	public static void main(String[] args) {
+		welcomeMessage();
+	}
+
+	private static void welcomeMessage() {
+		for(int i=0;i<1000;i++) {
+			System.out.println("환영합니다.");
+		}
+		
+	}
+	
+}
+
+
+#(1-2)36
+
+

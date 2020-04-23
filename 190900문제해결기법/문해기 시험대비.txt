@@ -1,0 +1,87 @@
+<연결리스트 main 기본 노드>
+Node head = null;
+head = new Node(1);
+head.next = new Node(2);
+head.next.next = new Node(3);
+printList(head);	// 메소드 호출
+
+<연결리스트 printList 메소드>
+private static void printList(Node head) {
+	for (Node p = head; p != null; p = p.next) System.out.print(p.data + "->");
+}
+
+<연결리스트 첫 위치 삽입>
+Node newNode=new Node(data);  
+newNode.next=head;   
+head=newNode;
+
+<연결리스트 끝 위치 삽입>
+Node newNode=new Node(data);
+if (head!=null) {
+	Node p=head;
+	while (p.next!=null) p=p.next;
+	p.next=newNode;
+}
+
+<연결리스트 특정 위치 삽입>
+int searchValue = 3; // 이 수치는 변경할 수 있음
+Node newNode=new Node(data); 
+Node p=head, prev=null;
+while(p!=null && p.data!=searchValue){ 
+	prev=p; 
+	p=p.next;
+}
+if(p==null) System.out.println(searchValue+" does not exist"); 
+else{ 
+	if(prev!=null) prev.next=newNode; 
+	else head=newNode; 
+	newNode.next=p; 
+} 
+
+<연결리스트 첫 위치 삭제>
+if (head != null) {
+	Node p = head;
+	head = head.next;
+	p.next = null;
+}
+
+<연결리스트 끝 위치 삭제>
+if(head!=null){    
+	Node p=head, prev=null;    
+	while(p.next!=null){ 
+		prev=p; 
+		p=p.next; 
+	}
+	if(prev!=null) prev.next=null;
+	else head=null;
+}
+
+<연결리스트 특정 위치 삭제>
+int searchValue = 2; // 이 수치는 변경할 수 있음
+Node p = head, prev = null;
+while (p != null && p.data != searchValue) {
+	prev = p;
+	p = p.next;
+}
+if (p == null) System.out.println(searchValue + " does not exist");
+else {
+	if (prev != null) prev.next = p.next;
+	elsehead = p.next;
+	p.next = null;
+}
+
+<SimpleList - toString()>	// 고정임 절대 안바뀜
+@Override
+public String toString() {
+	String v = "";
+	for (Node p = head; p != null; p = p.next) {
+		if (v.length() > 0) v += "->";
+			v += p.data;
+	}
+	return v;
+}
+
+<Generic 클래스 기반>
+Node들을 Node<T>로 바꾸면 됨, 클래스 이름들에도 <T>붙이기
+int data; -> T data;
+Node next; -> Node<T> next;

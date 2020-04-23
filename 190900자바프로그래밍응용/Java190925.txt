@@ -1,0 +1,75 @@
+#(2-1)p28
+
+public class Employee {
+	String id;
+	static double monthlyPayBase=250;
+	public Employee(String id) {
+		this.id=id;
+	}
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		System.out.println(Employee.monthlyPayBase);
+	}
+
+}
+
+
+#(2-2)static A
+public class Calc {
+	static double PI = 3.14159;
+
+	public static int max(int num1, int num2) {
+		if (num1 > num2)
+			return num1;
+		else
+			return num2;
+	}
+
+	public static double areaOfCircle(double radius) {
+		return radius * radius * PI;
+	}
+
+}
+
+public class Test {
+	public static void main(String[] args) {
+		int max = Calc.max(12, 34);
+		System.out.println(max);
+		System.out.println("원주율=" + Calc.PI);
+		double radius = 2.0;
+		double area = Calc.areaOfCircle(radius);
+		System.out.println("원의 면적=" + area);
+	}
+
+}
+
+#(2-2)static B
+
+public class Soldier {
+
+	public static int getCount(Soldier s[]) {
+		return s.length;
+	}
+	
+	public static void decreaseCount(Soldier s[]) {
+		s.length=s.length-1;
+	}
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		Soldier s[] = { new Soldier(), new Soldier(), new Soldier(), new Soldier() };
+		System.out.println(Soldier.getCount()); // 4
+		s[3] = null;
+		Soldier.decreaseCount();
+		System.out.println(Soldier.getCount()); // 3
+	}
+}
+
+#(2-2)static C
+
+#(2-2)static D

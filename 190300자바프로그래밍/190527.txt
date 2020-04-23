@@ -1,0 +1,160 @@
+#1
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Test {
+
+	public static void main(String[] args) {
+		try {
+			FileWriter w=new FileWriter("C:/Temp/data.txt");//이미 data.txt가 있으면 없애고 새로만듦
+			w.write("Hi");
+			w.write("안녕");
+			w.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+
+#2_파일 입출력 자료 예제 8번
+ C:Usersusereclipse-workspace190527bin 디렉터리
+
+2019-05-27  오후 02:19    <DIR>          .
+2019-05-27  오후 02:19    <DIR>          ..
+2019-05-27  오후 02:21               926 LineAdd.class
+2019-05-27  오후 02:18               714 Test.class
+               2개 파일               1,640 바이트
+               2개 디렉터리  904,945,201,152 바이트 남음
+
+C:Usersusereclipse-workspace190527bin>java LineAdd.class "C:/Temp/memo.txt" "메모 뀨뀨"
+오류: 기본 클래스 LineAdd.class을(를) 찾거나 로드할 수 없습니다.
+
+
+
+
+
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class LineAdd {
+
+	public static void main(String[] args) {
+		try {
+			FileWriter w=new FileWriter(args[0],true);//true를 써야 삭제안되고 추가됨
+			w.write(args[1]+"n");
+			w.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+
+
+#3_용량이 큰 파일 만들기
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class LineAdd {
+
+	public static void main(String[] args) {
+		try {
+			FileOutputStream os=new FileOutputStream("C:/Temp/big.txt");
+			for (int i = 0; i < 1000000; i++) {
+				os.write("Hellon".getBytes());
+			}
+			os.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+
+#4_
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class LineAdd {
+
+	public static void main(String[] args) {
+			try {FileInputStream is=new FileInputStream("C:/Temp/data.txt);//txt가 용량이 더 작음");
+			while(true) {
+				int data=is.read();
+				if(data==-1) break;
+				byte byteData=(byte) data;
+				System.out.println("%02xn",byteData);
+			os.write("Hellon".getBytes());
+			os.close();
+			}
+			is.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+#5
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class LineAdd {
+
+	public static void main(String[] args) {
+			try {FileInputStream is=new FileInputStream("C:/Temp/data.txt);//txt가 용량이 더 작음");
+			while(true) {
+				int data=is.read();
+				if(data==-1) break;
+				count++;a
+			}
+			is.close();
+			System.out.println("파일 크기: "+count);
+		} catch (Exception e) {
+		}
+		
+	}
+
+}
+
+
+#7_버퍼 직접 만드는거
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+
+public class LineAdd {
+
+	public static void main(String[] args) {
+			try {
+			int count=0;
+			byte buf[]=new byte[8192];
+			FileInputStream is=new FileInputStream("C:/Temp/data.txt");//txt가 용량이 더 작음
+			//BufferedinputStream is=(new BufferedinputStream(new FileinputStream("C:/Temp/data.txt")));
+			
+			while(true) {
+				int data=is.read(buf);
+				if(data==-1) break;
+				count+=data;
+			}
+			is.close();
+			System.out.println("파일 크기: "+count);
+		} catch (Exception e) {
+		}
+		
+	}
+
+}
