@@ -1,7 +1,11 @@
 public class Test {
 	public static void main(String[] args) {
-		String name = "이영희";
-		int score = 95;
-		System.out.println("이름: " + name + "\n" + "점수: " + score + "점");
+		double x = 40;
+		double y = 8;
+
+		System.out.println(x + y);
+		System.out.println(x - y);
+		System.out.println(x * y);
+		System.out.println(x / y);
 	}
 }
