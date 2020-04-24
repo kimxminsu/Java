@@ -1,0 +1,104 @@
+기초-실습A
+public class Test {
+	public static void main(String[] args) {
+		String name="김철수";
+		int age=21;
+		double weight=65.7;
+		char gender='남';
+		boolean dopingTestPassed=true;
+		
+		System.out.println(name); // 선수 이름
+		System.out.println(age); // 선수 나이
+		System.out.println(weight); // 선수 체중
+		System.out.println(gender); // 선수 성별
+		System.out.println(dopingTestPassed); // 선수 도핑 테스트 결과 (불리언)
+	}
+}
+
+기초-실습B
+public class Test {
+	public static void main(String[] args) {
+		int box1Weight = 50;
+		int box2Weight = 300;
+		
+		int temp = box1Weight;
+		box1Weight = box2Weight;
+		box2Weight = temp;
+		
+		System.out.println(box1Weight);
+		System.out.println(box2Weight);
+	}
+}
+
+기초-실습C
+public class Test {
+	public static void main(String[] args) {
+		int mathScore = 79, langScore = 86, engScore = 95; // (1)(2)(3)
+		System.out.println((mathScore + langScore + engScore) / 3.0); // (4)(5)(6)
+	}
+}
+
+기초-실습E
+public class Test {
+	public static void main(String[] args) {
+		String name = "이영희";
+		int score = 95;
+		System.out.println("이름: "+name+"\n"+"점수: "+score+"점");
+	}
+}
+
+기초-실습F
+public class Test {
+	public static void main(String[] args) {
+		double x = 40;
+		double y = 8;
+
+		System.out.println(x + y);
+		System.out.println(x - y);
+		System.out.println(x * y);
+		System.out.println(x / y);
+	}
+}
+
+기초-실습G
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		String mileStr = JOptionPane.showInputDialog("마일(mile)값을 입력하세요");
+		int mile = Integer.parseInt(mileStr);
+		double km = mile * 1.609;
+		String message = mile + "마일(mile)은 " + km + " 킬로미터(km)입니다.";
+		JOptionPane.showMessageDialog(null, message);
+	}
+}
+
+기초-실습H
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		String fahrenheitStr = JOptionPane.showInputDialog("화씨 온도 값을 입력하세요");
+		double fahrenheit = Integer.parseInt(fahrenheitStr);
+		double celsius = (fahrenheit - 32) * 5 / 9;
+		String message = "화씨 " + fahrenheit + "도는 섭씨 " + celsius + "도입니다.";
+		JOptionPane.showMessageDialog(null, message);
+	}
+}
+
+기초-실습I
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		String num1 = JOptionPane.showInputDialog("사칙연산 계산을 위한 첫번째 정수를 입력하세요");
+		String num2 = JOptionPane.showInputDialog("사칙연산 계산을 위한 두번째 정수를 입력하세요");
+		double n1 = Integer.parseInt(num1);
+		double n2 = Integer.parseInt(num2);
+		String message = n1 + " + " + n2 + " = " + (n1 + n2) + "\n" 
+				+ n1 + " - " + n2 + " = " + (n1 - n2) + "\n"
+				+ n1 + " X " + n2 + " = " + (n1 * n2) + "\n"
+				+ n1 + " / " + n2 + " = " + (n1 / n2) + "\n";
+		JOptionPane.showMessageDialog(null, message);
+	}
+}

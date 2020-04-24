@@ -1,0 +1,24 @@
+000-자바개발환경설치
+
+실습 #1
+public class Test {
+	public static void main(String[] args) {
+		EBook ebook = new EBook("B00012", "자바 시작하기", 2018, 20.4);
+		System.out.println(ebook.toString());
+	}
+}
+
+실습 #2
+public class KSUSW {
+	public static void main(String[] args) {
+		System.out.println("경성대학교 소프트웨어학과");
+	}
+}
+
+실습 #3
+
+public class Vprint {
+	public static void main(String[] args) {
+		System.out.println("대\n한\n민\n국");
+	}
+}
