@@ -1,8 +1,12 @@
 public class Test {
 	public static void main(String[] args) {
-		int score = -1;
-		String prt;
-		prt = (score >= 0 && score <= 100) ? "정상" : "비정상";
-		System.out.println(prt);
+		int x = 34, y = 90;
+		if (x > y) {
+			System.out.println(x);
+			System.out.println(y);
+		} else {
+			System.out.println(y);
+			System.out.println(x);
+		}
 	}
 }
