@@ -6,6 +6,8 @@ public class Test {
 			fee *= 0.5;
 		if (age >= 65)
 			fee *= 0.7;
+		if (age >= 7 && age < 20)
+			fee *= 0.8;
 		System.out.println(fee);
 	}
 }
