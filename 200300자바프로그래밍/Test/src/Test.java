@@ -1,20 +1,19 @@
 public class Test {
 	public static void main(String[] args) {
-		int score=89;
-		if(score>=60) {
-			if(score>=70) {
-				if(score>=80) {
-					if(score>=90) System.out.println('A');
-					else {
-					System.out.println('B');}
-				}
-				else {
-				System.out.println('C');}
-			}
-			else {
-			System.out.println('D');}
+		int score = 95;
+		if (score >= 90) {
+			System.out.println('A');
 		}
-		else {
-		System.out.println('F');}
+		if (score >= 80 && score < 90) {
+			System.out.println('B');
+		}
+		if (score >= 70 && score < 80) {
+			System.out.println('C');
+		}
+		if (score >= 60 && score < 70) {
+			System.out.println('A');
+		}
+		if (score < 70)
+			System.out.println('F');
 	}
 }
