@@ -1,0 +1,181 @@
+조건문-A0
+public class Test {
+	public static void main(String[] args) {
+		int score = -8;
+		if (score < 0)
+			score = score * (-1);
+		System.out.println(score);
+	}
+}
+
+조건문-A1
+public class Test {
+	public static void main(String[] args) {
+		int score = -8;
+		score = (score < 0) ? score * (-1) : score;
+		System.out.println(score);
+	}
+}
+
+조건문-B
+public class Test {
+	public static void main(String[] args) {
+		double fee = 1000;
+		int age = 65;
+		if (age <= 6)
+			fee *= 0.5;
+		if (age >= 65)
+			fee *= 0.7;
+		System.out.println(fee);
+	}
+}
+
+조건문-C
+public class Test {
+	public static void main(String[] args) {
+		double fee = 1000;
+		int age = 65;
+		if (age <= 6)
+			fee *= 0.5;
+		if (age >= 65)
+			fee *= 0.7;
+		if (age >= 7 && age < 20)
+			fee *= 0.8;
+		System.out.println(fee);
+	}
+}
+
+조건문-D0
+public class Test {
+	public static void main(String[] args) {
+		int score = -1;
+		if (score >= 0 && score <= 100)
+			System.out.println("정상");
+		else
+			System.out.println("비정상");
+	}
+}
+
+조건문-D1
+public class Test {
+	public static void main(String[] args) {
+		int score = -1;
+		String prt;
+		prt = (score >= 0 && score <= 100) ? "정상" : "비정상";
+		System.out.println(prt);
+	}
+}
+
+조건문-E
+public class Test {
+	public static void main(String[] args) {
+		int x = 34, y = 90;
+		if (x > y) {
+			System.out.println(x);
+			System.out.println(y);
+		} else {
+			System.out.println(y);
+			System.out.println(x);
+		}
+	}
+}
+
+조건문-F
+public class Test {
+	public static void main(String[] args) {
+		int x = 5, y = 4;
+		if (x > y) {
+			System.out.println(x);
+		} else {
+			System.out.println(y);
+		}
+	}
+}
+
+조건문-G
+
+public class Test {
+	public static void main(String[] args) {
+		int x = 237, y = 89, z = -6;
+		if (x > y) {
+			if (x > z)
+				System.out.println(x);
+			else
+				System.out.println(z);
+		} else {
+			if (y > z)
+				System.out.println(y);
+			else
+				System.out.println(z);
+		}
+	}
+}
+조건문-H
+[방법1]
+public class Test {
+	public static void main(String[] args) {
+		int score=89;
+		if(score>=60) {
+			if(score>=70) {
+				if(score>=80) {
+					if(score>=90) System.out.println('A');
+					else {
+					System.out.println('B');}
+				}
+				else {
+				System.out.println('C');}
+			}
+			else {
+			System.out.println('D');}
+		}
+		else {
+		System.out.println('F');}
+	}
+}
+[방법2]
+public class Test {
+	public static void main(String[] args) {
+		int score = 95;
+		if (score >= 90) {
+			System.out.println('A');
+		}
+		if (score >= 80 && score < 90) {
+			System.out.println('B');
+		}
+		if (score >= 70 && score < 80) {
+			System.out.println('C');
+		}
+		if (score >= 60 && score < 70) {
+			System.out.println('D');
+		}
+		if (score < 70)
+			System.out.println('F');
+	}
+}
+
+조건문-I
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		String scoreStr = JOptionPane.showInputDialog("성적(0-100)을 입력하세요");
+		double score = Integer.parseInt(scoreStr);
+		char grade = ' ';
+		if (score >= 90) {
+			grade = 'A';
+		}
+		if (score >= 80 && score < 90) {
+			grade = 'B';
+		}
+		if (score >= 70 && score < 80) {
+			grade = 'C';
+		}
+		if (score >= 60 && score < 70) {
+			grade = 'D';
+		}
+		if (score < 70)
+			grade = 'F';
+		String message = "성적 " + score + " 의 학점은 " + grade + "입니다.";
+		JOptionPane.showMessageDialog(null, message);
+	}
+}
