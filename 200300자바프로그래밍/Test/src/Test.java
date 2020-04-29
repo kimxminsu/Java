@@ -7,7 +7,10 @@ public class Test {
 		char country[];
 		country=new char[5];
 		country[0]='K';
-		country[1]='K';
+		country[1]='o';
+		country[2]='r';
+		country[3]='e';
+		country[4]='a';
 		
 //		double country[]=new double[1];
 //		country[0]=94.5;
