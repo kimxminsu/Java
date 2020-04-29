@@ -1,18 +1,16 @@
 /*
-true, false를 불리언 배열 check에 저장하는 코드를 작성하시오
+정수 99를 배열 grade에 저장하는 코드를 작성하시오
 3가지 서로 다른 방법으로 작성해 보시오
 */
 public class Test {
 	public static void main(String[] args) {
-		boolean check[];
-		check = new boolean[2];
-		check[0] = true;
-		check[1] = false;
+		int grade[];
+		grade = new int[1];
+		grade[0] = 99;
 
-//		boolean check[] = new boolean[2];
-//		check[0] = true;
-//		check[1] = false;
+//		int grade[] = new int[1];
+//		grade[0] = 99;
 //
-//		boolean check[] = { true, false };
+//		int grade[] = { 99 };
 	}
 }
