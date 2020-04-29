@@ -1,16 +1,20 @@
 /*
-정수 99를 배열 grade에 저장하는 코드를 작성하시오
+"Korea", "UK", "UK"를 배열 grade에 저장하는 코드를 작성하시오
 3가지 서로 다른 방법으로 작성해 보시오
 */
 public class Test {
 	public static void main(String[] args) {
-		int grade[];
-		grade = new int[1];
-		grade[0] = 99;
+		String grade[];
+		grade = new String[3];
+		grade[0] = "Korea";
+		grade[1] = "UK";
+		grade[2] = "UK";
 
-//		int grade[] = new int[1];
-//		grade[0] = 99;
+//		String grade[] = new String[3];
+//		grade[0] = "Korea";
+//		grade[1] = "UK";
+//		grade[2] = "UK";
 //
-//		int grade[] = { 99 };
+//		String grade[] = { "Korea", "UK", "UK" };
 	}
 }
