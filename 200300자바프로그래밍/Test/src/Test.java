@@ -1,17 +1,21 @@
 /*
-94.5를 배열 score에 저장하는 코드를 작성하시오
+'K', 'o', 'r', 'e', 'a'를 배열 country에 저장하는 코드를 작성하시오
 3가지 서로 다른 방법으로 작성해 보시오
 */
 public class Test {
 	public static void main(String[] args) {
-		double score[];
-		score=new double[1];
-		score[0]=94.5;
-
-//		double score[]=new double[1];
-//		score[0]=94.5;
+		char country[];
+		country=new char[5];
+		country[0]='K';
+		country[1]='o';
+		country[2]='r';
+		country[3]='e';
+		country[4]='a';
+		
+//		double country[]=new double[1];
+//		country[0]=94.5;
 //		
-//		double score[]= {94.5};
-//		System.out.println(score[0]);
+//		double country[]= {94.5};
+//		System.out.println(country[0]);
 	}
 }
