@@ -4,15 +4,15 @@
 */
 public class Test {
 	public static void main(String[] args) {
-		char score[];
-		score=new char[5];
-		score[0]='K';
-		score[1]='K';
+		char country[];
+		country=new char[5];
+		country[0]='K';
+		country[1]='K';
 		
-//		double score[]=new double[1];
-//		score[0]=94.5;
+//		double country[]=new double[1];
+//		country[0]=94.5;
 //		
-//		double score[]= {94.5};
-//		System.out.println(score[0]);
+//		double country[]= {94.5};
+//		System.out.println(country[0]);
 	}
 }
