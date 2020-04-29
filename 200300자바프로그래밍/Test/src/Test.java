@@ -1,21 +1,21 @@
 /*
-다음은 어떤 코드와 그 실행 결과이다
-이 코드는 반복문을 사용하여 department 배열 내 각 문자를 공백 한
-칸씩 간격을 띄어 출력한다고 한다. 이 코드를 완성하시오.
-실행결과
-소 프 트 웨 어 학 과
+클래스 Test는 아래 실행 예시와 같이 명령행 인자로 주어진 두
+숫자 문자열에 대응하는 수의 합을 출력한다고 한다. 클래스
+Test를 작성하시오.
+
+java Test 11 22
+33
+명령프롬프트에서의 실행 예시
 */
 public class Test {
 	public static void main(String[] args) {
-		int x = 10, y = 3;
-		int stat[] = new int[4];
-		stat[0] = x + y;
-		stat[1] = x - y;
-		stat[2] = x * y;
-		stat[3] = x / y;
-
-		for (int i = 0; i < stat.length; i++) {
-			System.out.println(stat[i]);
-		}
+		int num1 = Integer.parseInt(args[0]);
+		int num2 = Integer.parseInt(args[1]);
+		System.out.println(num1+num2);
 	}
 }
+/*
+실행방법
+방법1)이클립스 상단-실행버튼 자세히-Run Configuration-java Application-Test-arguments-Program arguments-11 22 입력
+방법2)cmd-cd 파일경로(src)-javac Test.java-(Test.class 생성됨)-java Test 11 22
+*/
