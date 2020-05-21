@@ -1,32 +1,25 @@
 /*
-메소드 – 실습 E
-아래 basicMath()는 두 실수를 파라미터로 전달받아 그 합,차,곱,
-몫(나머지포함)을 실수 배열에 담아 반환하는 메소드이다. 아래
-코드가 정상 동작하도록 basicMath() 메소드를 완성하시오.
+문자열 실습 A
+다음은 입력창에 길이 1 이상의 문자열을 입력 후 OK버튼을 클릭하면 입력된 문자
+열의 첫 문자와 마지막 문자를 화면에 출력하는 코드와 그 실행 예시이다. 아래 코드
+를 완성하시오.
 */
+import javax.swing.JOptionPane;
+
 public class Test {
 	public static void main(String[] args) {
-		double x = 3.0, y = 5.0;
-		double v[] = basicMath(x, y);
-		System.out.println("합=" + v[0]);
-		System.out.println("차=" + v[1]);
-		System.out.println("곱=" + v[2]);
-		System.out.println("몫(나머지 포함)=" + v[3]);
-	}
-
-	private static double[] basicMath(double x, double y) {
-		double calc[] = new double[4];
-		calc[0] = x + y;
-		calc[1] = x - y;
-		calc[2] = x * y;
-		calc[3] = x / y;
-		return calc;
+		String s = JOptionPane.showInputDialog("문자열 입력");
+		char firstChar = s.charAt(0);
+		char lastChar = s.charAt(s.length()-1);
+		System.out.println(firstChar);
+		System.out.println(lastChar);
 	}
 }
 /*
+입력값
+경성대학교 소프트웨어학과
+
 실행결과
-합 = 8.0
-차 = -2.0
-곱 = 15.0
-몫(나머지 포함) = 0.6
+경
+과
 */
