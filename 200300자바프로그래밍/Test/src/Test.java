@@ -1,16 +1,17 @@
 /*
-¾Æ·¡ basicMath()´Â µÎ ½Ç¼ö¸¦ ÆÄ¶ó¹ÌÅÍ·Î Àü´Ş¹Ş¾Æ ±× ÇÕ,Â÷,°ö,
-¸ò(³ª¸ÓÁöÆ÷ÇÔ)À» ½Ç¼ö ¹è¿­¿¡ ´ã¾Æ ¹İÈ¯ÇÏ´Â ¸Ş¼ÒµåÀÌ´Ù. ¾Æ·¡
-ÄÚµå°¡ Á¤»ó µ¿ÀÛÇÏµµ·Ï basicMath() ¸Ş¼Òµå¸¦ ¿Ï¼ºÇÏ½Ã¿À.
+ë©”ì†Œë“œ â€“ ì‹¤ìŠµ E
+ì•„ë˜ basicMath()ëŠ” ë‘ ì‹¤ìˆ˜ë¥¼ íŒŒë¼ë¯¸í„°ë¡œ ì „ë‹¬ë°›ì•„ ê·¸ í•©,ì°¨,ê³±,
+ëª«(ë‚˜ë¨¸ì§€í¬í•¨)ì„ ì‹¤ìˆ˜ ë°°ì—´ì— ë‹´ì•„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œì´ë‹¤. ì•„ë˜
+ì½”ë“œê°€ ì •ìƒ ë™ì‘í•˜ë„ë¡ basicMath() ë©”ì†Œë“œë¥¼ ì™„ì„±í•˜ì‹œì˜¤.
 */
 public class Test {
 	public static void main(String[] args) {
 		double x = 3.0, y = 5.0;
 		double v[] = basicMath(x, y);
-		System.out.println("ÇÕ=" + v[0]);
-		System.out.println("Â÷=" + v[1]);
-		System.out.println("°ö=" + v[2]);
-		System.out.println("¸ò(³ª¸ÓÁö Æ÷ÇÔ)=" + v[3]);
+		System.out.println("í•©=" + v[0]);
+		System.out.println("ì°¨=" + v[1]);
+		System.out.println("ê³±=" + v[2]);
+		System.out.println("ëª«(ë‚˜ë¨¸ì§€ í¬í•¨)=" + v[3]);
 	}
 
 	private static double[] basicMath(double x, double y) {
@@ -23,9 +24,9 @@ public class Test {
 	}
 }
 /*
-½ÇÇà°á°ú
-ÇÕ = 8.0
-Â÷ = -2.0
-°ö = 15.0
-¸ò(³ª¸ÓÁö Æ÷ÇÔ) = 0.6
+ì‹¤í–‰ê²°ê³¼
+í•© = 8.0
+ì°¨ = -2.0
+ê³± = 15.0
+ëª«(ë‚˜ë¨¸ì§€ í¬í•¨) = 0.6
 */
