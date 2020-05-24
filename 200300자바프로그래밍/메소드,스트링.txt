@@ -1,0 +1,158 @@
+메소드-A
+public class Test {
+	public static void main(String[] args) {
+		int x = 1, y = 2, z = 2;
+		double value = func(x, y, z);
+		System.out.println(value); // 실행결과 -0.5
+	}
+
+	private static double func(int x, int y, int z) {
+		double result = 0;
+		result = (double) (x - y) / (double) z;
+		return result;
+	}
+}
+
+메소드-B
+public class Test {
+	public static void main(String[] args) {
+		int x = 10, y = 30;
+		printSum(x, y); // 실행결과 40
+	}
+
+	private static void printSum(int x, int y) {
+		int sum = 0;
+		sum = x + y;
+		System.out.println(sum);
+	}
+}
+
+메소드-E
+public class Test {
+	public static void main(String[] args) {
+		double x = 3.0, y = 5.0;
+		double v[] = basicMath(x, y);
+		System.out.println("합=" + v[0]);
+		System.out.println("차=" + v[1]);
+		System.out.println("곱=" + v[2]);
+		System.out.println("몫(나머지 포함)=" + v[3]);
+	}
+
+	private static double[] basicMath(double x, double y) {
+		double calc[] = new double[4];
+		calc[0] = x + y;
+		calc[1] = x - y;
+		calc[2] = x * y;
+		calc[3] = x / y;
+		return calc;
+	}
+}
+
+String클래스-A
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		String s = JOptionPane.showInputDialog("문자열 입력");
+		char firstChar = s.charAt(0);
+		char lastChar = s.charAt(s.length() - 1);
+		System.out.println(firstChar);
+		System.out.println(lastChar);
+	}
+}
+
+String클래스-B
+/*
+문자열 실습 B
+다음은 입력창에 길이 3이상의 문자열을 입력 후 OK버튼을 클릭하면 입력된 문자열
+의 왼쪽 끝 세 문자들로 이루어진 문자열과 오른쪽 끝 세 문자들로 이루어진 문자열
+을 화면에 출력하는 코드와 그 실행 예시이다. 아래 코드를 완성하시오.
+*/
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		String s = JOptionPane.showInputDialog("문자열 입력");
+		String prefix = s.substring(0, 3);
+		String postfix = s.substring(s.length() - 3);
+		System.out.println(prefix);
+		System.out.println(postfix);
+	}
+}
+/*
+입력값
+경성대학교 소프트웨어학과
+한국-미국-영국-독일-스위스
+
+실행결과
+경성대
+어학과
+*/
+
+String클래스-C
+/*
+문자열 실습 C
+다음은 입력창에 “부산으로 시작하고 연구소로 끝나는” 문자열이 입력되면 부산과
+연구소 사이의 문자열을 메시지창에 출력하고 그렇지 않은 경우 입력 오류를 메시지
+창에 출력하는 코드의 실행 예시이다. 이 코드를 완성하시오.
+ 예: 부산바이러스연구소 입력 시  바이러스 출력
+*/
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		String s = JOptionPane.showInputDialog("문자열 입력");
+		String prefix = s.substring(0, 2);
+		String postfix = s.substring(s.length() - 3);
+
+		String message = "입력 오류";
+
+		if (prefix == "부산") {
+			message = "바이러스";
+		}
+		JOptionPane.showMessageDialog(null, message);
+	}
+}
+
+String클래스-E
+/*
+문자열 실습 E
+다음은 입력창에 대쉬문자(-)로 분리된 2개 이상의 국가명을 입력 후 OK버튼을 클릭
+하면 입력된 국가명 중 가장 왼쪽 국가명과 가장 오른쪽 국가명을 화면에 출력하는
+코드와 그 실행 예시이다. 아래 코드를 완성하시오.
+*/
+import javax.swing.JOptionPane;
+
+public class Test {
+	public static void main(String[] args) {
+		String s = JOptionPane.showInputDialog("문자열 입력");
+		String t[]=s.split("-");
+		System.out.println(t[0]);
+		System.out.println(t[t.length-1]);
+	}
+}
+/*
+입력값
+한국-미국-영국-독일-스위스
+
+실행결과
+한국
+스위스
+*/
+
+/*
+L14
+문제점:
+t[t.length]라고 생각해서 계속 오류가 일어났다.
+혹시나 문자의 길이를 구할때처럼 t.length()를 시도했으나
+	System.out.println(t[t.length()]);
+또 오류가 났고,
+[]안에는 t.length가 안되는가 싶어서 새로운 변수에 t.length를 넣어서 시도했으나
+	int n = t.length;
+	System.out.println(t[n]);
+여전히 오류가 발생했다.
+
+해결:
+t.length는 5이기 때문에 t[5]는 존재하지 않는다.
+따라서 t[t.length-1]로 수정해야한다.
+*/
