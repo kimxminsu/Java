@@ -14,14 +14,17 @@ public class Test {
 		e.id="EMP-123";
 		e.joinDate=new DateInfo();
 		e.joinDate.year=2015;
-		e.joinDate.month=2015;
-		e.joinDate.day=2015;
+		e.joinDate.month=3;
+		e.joinDate.day=2;
 		System.out.println("직원 아이디: "+e.id);
 		System.out.println("직원 입사일: "+e.joinDate.year+"년"+e.joinDate.month+"월"+e.joinDate.day+"일");
 	}
 }
 /*
 실행결과
-직원 아이디: EMP-123
-직원 입사일: 2015년3월2일
+학번=KSU-123
+이수학기수=2
+성별=여
+평점=3.97
+외국인여부=true
 */
