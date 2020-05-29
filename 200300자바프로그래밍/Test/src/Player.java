@@ -10,6 +10,6 @@ public class Player {
 	}
 
 	public double getAverage() {
-		return (record1+record2+record3)/3;
+		return (record1 + record2 + record3) / 3;
 	}
 }
